@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8206217ddaea4feca46d90590d22418e" Name="Diagram1">
+        <EntityTypeShape EntityType="VanctModel.BaseFile" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanctModel.BaseUser" Width="1.5" PointX="7.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VanctModel.HomeGallery" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VanctModel.OpenIdConfig" Width="1.5" PointX="9.75" PointY="7.75" />
+        <EntityTypeShape EntityType="VanctModel.PosCompany" Width="1.5" PointX="7.75" PointY="10.75" />
+        <EntityTypeShape EntityType="VanctModel.PostLink" Width="1.5" PointX="9.75" PointY="10.75" />
+        <EntityTypeShape EntityType="VanctModel.PostLinkType" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VanctModel.PosUser" Width="1.5" PointX="11.75" PointY="3.75" />
+        <EntityTypeShape EntityType="VanctModel.Product" Width="1.5" PointX="5.25" PointY="5.875" />
+        <EntityTypeShape EntityType="VanctModel.ProductImage" Width="1.5" PointX="7.5" PointY="7.375" />
+        <EntityTypeShape EntityType="VanctModel.ProductType" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="VanctModel.ProductTypeGroup" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="VanctModel.ReportDaily" Width="1.5" PointX="5" PointY="1.125" />
+        <EntityTypeShape EntityType="VanctModel.ReportDailyline" Width="1.5" PointX="7.25" PointY="1.125" />
+        <EntityTypeShape EntityType="VanctModel.RUser" Width="1.5" PointX="2.75" PointY="1" />
+        <EntityTypeShape EntityType="VanctModel.SupportOnline" Width="1.5" PointX="11.75" PointY="7.75" />
+        <EntityTypeShape EntityType="VanctModel.Topic" Width="1.5" PointX="11.75" PointY="10.75" />
+        <AssociationConnector Association="VanctModel.FK__Product__Product__1FCDBCEB" />
+        <AssociationConnector Association="VanctModel.FK__Product__Product__20C1E124" />
+        <AssociationConnector Association="VanctModel.FK__Product__Product__21B6055D" />
+        <AssociationConnector Association="VanctModel.FK__Product__Product__22AA2996" />
+        <AssociationConnector Association="VanctModel.FK__ProductIm__Produ__239E4DCF" />
+        <AssociationConnector Association="VanctModel.FK__ProductTy__Produ__1ED998B2" />
+        <AssociationConnector Association="VanctModel.FK__ProductTy__Produ__1FCDBCEB" />
+        <AssociationConnector Association="VanctModel.FK_ReportDaily_RUser" />
+        <AssociationConnector Association="VanctModel.FK_ReportDailyline_ReportDaily" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="27316688-3fd3-44e5-b236-923e5bbfc764" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Vanct/Webservice/MyService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MyService.disco" MetadataType="Disco" ID="80e2b34e-286c-4e66-8bb0-2d6f94782c31" SourceId="1" SourceUrl="http://localhost/Vanct/Webservice/MyService.svc?disco" />
+    <MetadataFile FileName="MyService.wsdl" MetadataType="Wsdl" ID="9bece537-0aed-4fae-8aeb-e34390786dcd" SourceId="1" SourceUrl="http://localhost/Vanct/Webservice/MyService.svc?wsdl" />
+    <MetadataFile FileName="MyService.xsd" MetadataType="Schema" ID="f10fd34f-6ab6-4bf6-a5b3-4ff1ce20811d" SourceId="1" SourceUrl="http://localhost/Vanct/Webservice/MyService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MyService1.xsd" MetadataType="Schema" ID="7cfce84a-50a5-4133-bdb1-e023ce5e7a3a" SourceId="1" SourceUrl="http://localhost/Vanct/Webservice/MyService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MyService1.wsdl" MetadataType="Wsdl" ID="4cbb981e-ae10-404b-b59c-0b565b6557c0" SourceId="1" SourceUrl="http://localhost/Vanct/Webservice/MyService.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

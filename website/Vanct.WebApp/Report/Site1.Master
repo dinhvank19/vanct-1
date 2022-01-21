@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Vanct.WebApp.Report.Site1" %>
+
+<%@ Import Namespace="Vanct.WebApp.AppCode" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>ACE Softs</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<%=ResolveUrl("~/Content/Themes/Images/vanct_icon.ico") %>" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MetroUI/min/iconFont.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Themes/icons.css" />
+    <link rel="stylesheet" type="text/css" id="linkCss" />
+    <script type="text/javascript" src="<%=ResolveUrl("~/Content/MetroUI/min/jquery.min.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Content/Js/ReportHelper.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Content/Js/jquery.formatCurrency-1.4.0.min.js") %>"></script>
+    <script type="text/javascript" src="<%=ResolveUrl("~/Content/Js/jquery.lightbox_me.js") %>"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body class="pc">
+    <div class="_header shadow">
+        <div class="left" id="btnDropMenu" style="margin-left: 5px;">
+            <div class="header-icon left"></div>
+            <div class="left">
+                <div class="text">
+                    <div class="name">ACE Softs</div>
+                    <div id="divUsername"><%=Username %></div>
+                </div>
+            </div>
+            <div class="clr"></div>
+        </div>
+        <asp:ContentPlaceHolder ID="rightInfoContent" runat="server" />
+        <div style="clear: both;"></div>
+    </div>
+    <div id="divMenuOverlay">
+        <div id="divMenu" class="menu shadow" style="display: none;">
+            <div class="title">Menu</div>
+            <a style="display: none;" href="<%=ResolveUrl("~/Report/Default.aspx") %>">
+                <div class="item">&raquo; Báo cáo hiện tại</div>
+            </a>
+            <a style="display: none;" href="<%=ResolveUrl("~/Report/DailyReport.aspx") %>">
+                <div class="item">&raquo; Báo cáo theo ngày</div>
+            </a>
+            <a href="<%=ResolveUrl("~/Report/ChangePassword.aspx") %>">
+                <div class="item">&raquo; Change Password</div>
+            </a>
+            <div class="item" onclick="Logout();">&raquo; Logout</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        if (IsMobile) {
+            $('#linkCss').attr('href', '<%=ResolveUrl("~/Content/Themes/ReportMobile.css") %>');
+            $(document.body).removeClass('pc').addClass('mobile');
+            $('head').append($('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">'));
+        } else {
+            $('#linkCss').attr('href', '<%=ResolveUrl("~/Content/Themes/ReportPC.css") %>');
+        }
+    </script>
+    <%
+        if (VanctContext.ReportUser != null)
+        {
+    %>
+    <script type="text/javascript">
+        var btnDropMenu = $('#btnDropMenu');
+        var divMenu = $('#divMenu');
+        divMenu.height($(window).height());
+        btnDropMenu.unbind('click').bind('click', function () {
+            $('#divMenuOverlay').lightbox_me({
+                modalCSS: { top: 0, left: 0 },
+                overlaySpeed: 50,
+            });
+            $('#divMenu').show();
+        });
+
+        function Logout() {
+            $.Hulk.CallbackRequestUrl('<%=ResolveUrl("~/Report/Worker.ashx?action=Logout") %>', 'json', null, function (rs) {
+                window.location = '<%=ResolveUrl("~/Report/Default.aspx") %>';
+            });
+        }
+    </script>
+    <%
+        }
+    %>
+    <asp:ContentPlaceHolder ID="body" runat="server" />
+</body>
+</html>

@@ -1,0 +1,348 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: verdana,"segoe ui";
+    font-size: 12px;
+    cursor: default;
+}
+
+.hide-scroll {
+    overflow: hidden;
+}
+
+.auto-scroll {
+    background-color: #fff;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clr {
+    clear: both;
+}
+
+.shadow {
+    -moz-box-shadow: 0 1px 13px #ccc;
+    -webkit-box-shadow: 0 1px 13px #ccc;
+    box-shadow: 0 1px 13px #ccc;
+}
+
+a img {
+    border: 0;
+}
+
+.mobile {
+    padding: 0 5px 5px;
+}
+
+    .mobile #divRightInfo {
+        margin-right: 5px;
+        display: none;
+        /*text-align: right;*/
+    }
+
+    .mobile .login {
+        width: 100%;
+    }
+
+    .mobile .menu {
+        width: 250px;
+        background-color: #fefefe;
+        color: #000;
+    }
+
+        .mobile .menu .title {
+            color: #2D66EB;
+            padding: 10px;
+            border-top: solid 3px #2D66EB;
+            border-bottom: dashed 1px #ccc;
+            font-weight: bold;
+        }
+
+        .mobile .menu a {
+            color: #000;
+        }
+
+        .mobile .menu .item {
+            line-height: 20px;
+            border-bottom: dashed 1px #ccc;
+            padding: 10px;
+        }
+
+            .mobile .menu .item:hover, .mobile .menu .item a:hover {
+                color: #2D66EB;
+            }
+
+    .mobile ._header-margin50 {
+        margin-top: 50px;
+    }
+
+    .mobile ._header-height50 {
+        height: 50px;
+    }
+
+    .mobile ._header {
+        height: 42px;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        z-index: 99;
+    }
+
+        .mobile ._header .header-icon {
+            width: 32px;
+            height: 42px;
+            background: url(Icons/menu32.png) no-repeat center;
+        }
+
+        .mobile ._header .header-icon {
+            margin-right: 5px;
+        }
+
+        .mobile ._header .text {
+            font-size: 1em;
+            margin-top: 4px;
+            line-height: 17px;
+        }
+
+            .mobile ._header .text .name {
+                color: #2D66EB;
+                font-weight: bold;
+            }
+
+        .mobile ._header .total {
+            color: red;
+        }
+
+    .mobile .busy {
+        background-color: red;
+        color: #fff;
+    }
+
+    .mobile .processed {
+        background-color: #00f;
+        color: #fff;
+    }
+
+    .mobile .printed {
+        background-color: darkgreen;
+        color: #fff;
+    }
+
+    .mobile .table {
+        width: 80px;
+        height: 60px;
+        position: relative;
+        padding: 7px;
+        margin: 0 7px 7px 0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+        .mobile .table .name {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .mobile .table .total {
+            position: absolute;
+            bottom: 7px;
+            right: 7px;
+            font-weight: bold;
+        }
+
+    .mobile .details {
+        background-color: #fff;
+        padding: 5px;
+    }
+
+        .mobile .details .line2 {
+            line-height: 23px;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+        }
+
+            .mobile .details .line2 .secondline {
+                margin-right: 40px;
+                text-align: right;
+            }
+
+            .mobile .details .line2 .daxuly {
+                width: 30px;
+                height: 40px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+        .mobile .details .gray {
+            background-color: #fcfcfc;
+        }
+
+        .mobile .details .line {
+            border-bottom: 1px solid #ccc;
+            line-height: 30px;
+        }
+
+        .mobile .details .discount {
+            font-weight: 700;
+        }
+
+        .mobile .details .line .total {
+            color: red;
+            font-weight: 700;
+            float: right;
+        }
+
+        .mobile .details .line .amount {
+            width: 30px;
+            float: left;
+            text-align: right;
+        }
+
+        .mobile .details .line .name {
+            /*width: 40%;*/
+            float: left;
+        }
+
+            .mobile .details .line .name .daxuly {
+                width: 20px;
+                height: 20px;
+                display: inline-block;
+            }
+
+        .mobile .details .line .price {
+            width: 70px;
+            float: left;
+            text-align: right;
+        }
+
+        .mobile .details .line .btn-close {
+            float: left;
+        }
+
+            .mobile .details .line .btn-close input {
+                border: 1px solid #ccc;
+                font-size: 1.2em;
+                padding: 4px;
+                background-color: #eeeeee;
+            }
+
+    .mobile .btn-filter {
+        width: 42px;
+        height: 42px;
+        background: url(Icons/search32.png) no-repeat center;
+    }
+
+    .mobile .work-date {
+        font-size: 1em;
+        line-height: 20px;
+        margin: 0 10px 10px 0;
+        border: 1px solid #ccc;
+        padding: 0 5px 0 5px;
+        color: #0e0e0e;
+    }
+
+        .mobile .work-date .title {
+            padding: 6px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+            .mobile .work-date .title .date {
+                color: #0e0e0e;
+            }
+
+            .mobile .work-date .title .total {
+                color: red;
+            }
+
+        .mobile .work-date table {
+            width: 100%;
+        }
+
+            .mobile .work-date table tr > td {
+                width: 37%;
+            }
+
+                .mobile .work-date table tr > td:first-child {
+                    width: 26%;
+                }
+
+                .mobile .work-date table tr > td:last-child {
+                    text-align: right;
+                    color: red;
+                    padding-right: 6px;
+                }
+
+    .mobile table.work-line {
+        border-collapse: collapse;
+        font-size: 1em;
+        line-height: 20px;
+    }
+
+        .mobile table.work-line .header-row {
+            line-height: 30px;
+            background-color: #eee;
+            text-align: center;
+        }
+
+        .mobile table.work-line tr td {
+            padding: 3px;
+            border: 0;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+
+        .mobile table.work-line tr:first-child td {
+            padding: 0;
+        }
+
+        .mobile table.work-line tr.RowHeader td {
+            background-color: #eee;
+            font-size: 1em;
+        }
+
+        .mobile table.work-line tr:first-child th {
+            border-top: 0;
+        }
+
+        .mobile table.work-line tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .mobile table.work-line tr td:first-child, .mobile table.work-line tr th:first-child {
+            border-left: 0;
+        }
+
+        .mobile table.work-line tr td:last-child, .mobile table.work-line tr th:last-child {
+            border-right: 0;
+        }

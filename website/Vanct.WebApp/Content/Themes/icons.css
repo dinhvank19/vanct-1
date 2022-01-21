@@ -1,0 +1,9 @@
+﻿.ico_checked {
+    background: url(Icons/checked16.png) center no-repeat;
+}
+
+.ico-vanct {
+    height: 30px;
+    width: 20px;
+    background: url(Images/vanct_icon16.png) center no-repeat;
+}

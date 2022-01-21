@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+<head>
+    <title>Blank Cordova Mobile App Project Template (Lite)</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- see http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        /* following two viewport lines are equivalent to the meta viewport statement above, needed for Windows */
+        /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html and http://dev.w3.org/csswg/css-device-adapt/ */
+        
+        @-ms-viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+        
+        @viewport {
+            width: 100vw;
+            zoom: 100%;
+        }
+        
+        @-ms-viewport {
+            user-zoom: fixed;
+        }
+        
+        @viewport {
+            user-zoom: fixed;
+        }
+    </style>
+
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <script src="js/app.js"></script>
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <script src="xdk/init-dev.js"></script>
+    <!-- normalizes device and document ready events, see README for details -->
+
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            var physicalScreenWidth = window.screen.width;
+            var physicalScreenHeight = window.screen.height;
+            $('#webAppViewer').height(physicalScreenHeight).width(physicalScreenWidth);
+        }
+    </script>
+</head>
+
+<body style="margin: 0; padding: 0;overflow:hidden;">
+
+    <iframe id="webAppViewer" src="http://192.168.1.6/pos" style="border: 0; margin: 0; padding: 0; overflow:hidden"></iframe>
+
+</body>
+
+</html>

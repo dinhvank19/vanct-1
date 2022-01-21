@@ -1,0 +1,321 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+    font-family: verdana,"segoe ui";
+    font-size: 14px;
+    cursor: default;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clr {
+    clear: both;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.shadow {
+    -moz-box-shadow: 0 1px 13px #ccc;
+    -webkit-box-shadow: 0 1px 13px #ccc;
+    box-shadow: 0 1px 13px #ccc;
+}
+
+a img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pc {
+    padding: 0 5px 5px;
+}
+
+    .pc #divRightInfo {
+        margin-right: 5px;
+        display: none;
+        text-align: right;
+    }
+
+    .pc .menu {
+        width: 250px;
+        background-color: #fefefe;
+        color: #000;
+    }
+
+        .pc .menu .title {
+            color: #2D66EB;
+            padding: 10px;
+            border-top: solid 3px #2D66EB;
+            border-bottom: dashed 1px #ccc;
+            font-weight: bold;
+        }
+
+        .pc .menu a {
+            color: #000;
+        }
+
+        .pc .menu .item {
+            line-height: 20px;
+            border-bottom: dashed 1px #ccc;
+            padding: 10px;
+        }
+
+            .pc .menu .item:hover, .pc .menu .item a:hover {
+                color: #2D66EB;
+            }
+
+    .pc ._header-margin50 {
+        margin-top: 52px;
+    }
+
+    .pc ._header-height50 {
+        height: 52px;
+    }
+
+    .pc ._header {
+        height: 44px;
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        z-index: 99;
+    }
+
+        .pc ._header .header-icon {
+            width: 32px;
+            height: 46px;
+            background: url(Icons/menu32.png) no-repeat center;
+        }
+
+        .pc ._header .header-icon {
+            margin-right: 5px;
+        }
+
+        .pc ._header .text {
+            font-size: 1em;
+            margin-top: 4px;
+            line-height: 18px;
+        }
+
+            .pc ._header .text .name {
+                color: #2D66EB;
+                font-weight: bold;
+            }
+
+        .pc ._header .total {
+            color: red;
+        }
+
+    .pc .login {
+        width: 400px;
+    }
+
+    .pc .busy {
+        background-color: red;
+        color: #fff;
+    }
+
+    .pc .processed {
+        background-color: #00f;
+        color: #fff;
+    }
+
+    .pc .printed {
+        background-color: darkgreen;
+        color: #fff;
+    }
+
+    .pc .table {
+        width: 100px;
+        height: 80px;
+        position: relative;
+        padding: 7px;
+        margin: 0 7px 7px 0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 1.2em;
+    }
+
+        .pc .table .name {
+            position: absolute;
+            top: 7px;
+            left: 7px;
+        }
+
+        .pc .table .total {
+            position: absolute;
+            bottom: 7px;
+            right: 7px;
+        }
+
+    .pc .details {
+        width: 800px;
+        margin: 7px;
+        background-color: #fff;
+        padding: 7px;
+        font-size: 12px;
+    }
+
+        .pc .details .gray {
+            background-color: #fcfcfc;
+        }
+
+        .pc .details .line {
+            border-bottom: 1px solid #ccc;
+            line-height: 30px;
+        }
+
+        .pc .details .discount {
+            font-weight: 700;
+        }
+
+        .pc .details .total {
+            color: red;
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .pc .details .line .amount {
+            width: 40px;
+            float: left;
+        }
+
+        .pc .details .line .moment {
+            width: 120px;
+            float: left;
+        }
+
+        .pc .details .line .daxuly {
+            width: 20px;
+            height: 30px;
+            float: left;
+        }
+
+        .pc .details .line .name {
+            width: 380px;
+            float: left;
+        }
+
+        .pc .details .line .price {
+            width: 120px;
+            float: left;
+            text-align: right;
+        }
+
+    .pc .btn-filter {
+        width: 42px;
+        height: 42px;
+        background: url(Icons/search32.png) no-repeat center;
+    }
+
+    .pc .work-date {
+        font-size: 1em;
+        line-height: 20px;
+        width: 300px;
+        float: left;
+        margin: 0 10px 10px 0;
+        border: 1px solid #ccc;
+        padding: 0 5px 0 5px;
+        color: #0e0e0e;
+        min-height: 101px;
+    }
+
+        .pc .work-date .title {
+            padding: 6px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+            .pc .work-date .title .date {
+                color: #0e0e0e;
+            }
+
+            .pc .work-date .title .total {
+                color: red;
+            }
+
+        .pc .work-date table {
+            width: 100%;
+        }
+
+            .pc .work-date table tr > td {
+                width: 37%;
+            }
+
+                .pc .work-date table tr > td:first-child {
+                    width: 26%;
+                }
+
+                .pc .work-date table tr > td:last-child {
+                    text-align: right;
+                    color: red;
+                    padding-right: 6px;
+                }
+
+    .pc table.work-line {
+        border-collapse: collapse;
+        font-size: 1em;
+        line-height: 20px;
+        width: 800px;
+    }
+
+        .pc table.work-line .header-row {
+            line-height: 30px;
+            background-color: #eee;
+            text-align: center;
+        }
+
+            .pc table.work-line .header-row .padding5 {
+                padding: 0 5px 0 5px;
+            }
+
+        .pc table.work-line tr td {
+            padding: 3px;
+            border: 0;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+
+        .pc table.work-line tr:first-child td {
+            padding: 0;
+        }
+
+        .pc table.work-line tr.RowHeader td {
+            background-color: #eee;
+            font-size: 1em;
+        }
+
+        .pc table.work-line tr:first-child th {
+            border-top: 0;
+        }
+
+        .pc table.work-line tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .pc table.work-line tr td:first-child, .pc table.work-line tr th:first-child {
+            border-left: 0;
+        }
+
+        .pc table.work-line tr td:last-child, .pc table.work-line tr th:last-child {
+            border-right: 0;
+        }

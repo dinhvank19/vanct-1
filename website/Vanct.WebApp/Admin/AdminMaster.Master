@@ -1,0 +1,108 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="Vanct.WebApp.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Quản lý website</title>
+    <style>
+        .tab-container {
+            border-bottom: 1px solid #CCC;
+            border-left: 1px solid #CCC;
+            border-right: 1px solid #CCC;
+            padding: 10px;
+        }
+
+        #menu a {
+            color: royalblue;
+            text-decoration: none;
+        }
+
+        ._important {
+            color: red;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="header" runat="server" />
+    <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
+    <link href="~/Content/Themes/Images/vanct_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MetroUI/min/iconFont.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MetroUI/min/metro-bootstrap.min.css" />
+</head>
+<body>
+    <div class="metro">
+        <nav class="navigation-bar dark">
+            <nav class="navigation-bar-content">
+                <ul class="element-menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle">Sản phẩm</a>
+                        <ul class="dropdown-menu dark" data-role="dropdown">
+                            <li><a href="<%= ResolveUrl("~/Admin/Product/Products.aspx") %>"><span class="text">Danh mục sản Phẩm</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Product/ProductInsert.aspx") %>"><span class="text">Thêm mới sản phẩm</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Product/ProductTypeGroup.aspx") %>"><span class="text">Phân loại sản phẩm</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span class="element-divider"></span>
+                <ul class="element-menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle">Trang chủ</a>
+                        <ul class="dropdown-menu dark" data-role="dropdown">
+                            <li><a href="<%= ResolveUrl("~/Admin/Others/HomeGalleries.aspx") %>"><span class="text">Hình ảnh trang chủ</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Postlinks/PostLinkTypes.aspx") %>"><span class="text">Xắp xếp trang chủ</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span class="element-divider"></span>
+                <ul class="element-menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle">Bài viết</a>
+                        <ul class="dropdown-menu dark" data-role="dropdown">
+                            <li><a href="<%= ResolveUrl("~/Admin/Topics/Topics.aspx") %>"><span class="text">Các bài viết khác</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Postlinks/PostLinks.aspx?n=giai-phap") %>"><span class="text">Giải pháp</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Postlinks/PostLinks.aspx?n=khach-hang") %>"><span class="text">Khách hàng</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Postlinks/PostLinks.aspx?n=tin-tuc") %>"><span class="text">Tin tức</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span class="element-divider"></span>
+                <ul class="element-menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle">Khác</a>
+                        <ul class="dropdown-menu dark" data-role="dropdown">
+                            <li><a href="<%= ResolveUrl("~/Admin/Others/SupportOnline.aspx") %>"><span class="text">Hổ trợ trực tuyến</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Files/FileManage.aspx") %>"><span class="text">Tải về</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span class="element-divider"></span>
+                <ul class="element-menu">
+                    <li>
+                        <a href="#" class="dropdown-toggle">Phần mềm bán hàng</a>
+                        <ul class="dropdown-menu dark" data-role="dropdown">
+                            <li><a href="<%= ResolveUrl("~/Admin/Report/ReportUser.aspx") %>"><span class="text">Báo cáo trực tuyến</span></a></li>
+                            <li><a href="<%= ResolveUrl("~/Admin/Pos/CompanyList.aspx") %>"><span class="text">Bán hàng trực tuyến</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span class="element-divider"></span>
+                <a href="<%= ResolveUrl("~/Admin/ChangePassword.aspx") %>" class="element">Đổi mật khẩu</a>
+                <span class="element-divider"></span>
+            </nav>
+        </nav>
+    </div>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+                <asp:ScriptReference Path="~/Content/MetroUI/min/jquery.widget.min.js" />
+                <asp:ScriptReference Path="~/Content/MetroUI/min/metro.min.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <div style="padding: 10px;">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+        </div>
+    </form>
+</body>
+</html>

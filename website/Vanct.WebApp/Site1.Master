@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Vanct.WebApp.Site1" %>
+
+<%@ Register Src="~/UserControls/NavProductControl.ascx" TagName="NavProductControl" TagPrefix="uc1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>ACE Softs</title>
+    <asp:Literal runat="server" ID="lblHeader" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+    <link href="~/Content/Themes/Images/vanct_icon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MetroUI/min/iconFont.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/MetroUI/min/metro-bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/Themes/Layout.css" />
+</head>
+<body class="metro">
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Content/MetroUI/min/jquery.min.js" />
+                <asp:ScriptReference Path="~/Content/MetroUI/min/jquery.widget.min.js" />
+                <asp:ScriptReference Path="~/Content/MetroUI/min/metro.min.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <div class="_body">
+            <%--<div class="_header">
+                <div class="_logo _left"></div>
+                <div class="_clr"></div>
+            </div>--%>
+            <div style="margin-bottom: 5px;">
+                <asp:Literal runat="server" ID="lblPageHeader" />
+            </div>
+            <div class="container">
+                <nav class="navigation-bar dark">
+                    <nav class="navigation-bar-content">
+                        <a href="<%=ResolveUrl("~/Default.aspx") %>" class="element"><span class="icon-home"><span class="text">Trang chủ</span></span></a>
+                        <span class="element-divider"></span>
+                        <ul class="element-menu">
+                            <li><a class="dropdown-toggle" href="#"><span class="icon-box"><span class="text">Sản Phẩm</span></span></a>
+                                <uc1:NavProductControl ID="NavProductControl1" runat="server" />
+                            </li>
+                        </ul>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/PostLinkPage.aspx?n=giai-phap") %>" class="element"><span class="icon-snowy-4"><span class="text">&nbsp;Giải Pháp</span></span></a>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/PostLinkPage.aspx?n=khach-hang") %>" class="element"><span class="icon-credit-card"><span class="text">&nbsp;Khách hàng</span></span></a>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/PostLinkPage.aspx?n=tin-tuc") %>" class="element"><span class="icon-newspaper"><span class="text">&nbsp;Tin tức</span></span></a>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/Register.aspx") %>" class="element"><span class="icon-new"><span class="text">&nbsp;Đăng ký</span></span></a>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/Download.aspx") %>" class="element"><span class="icon-download"><span class="text">&nbsp;Tải về</span></span></a>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/Report/Default.aspx") %>" class="element"><span class="icon-chart-alt"><span class="text">&nbsp;Báo cáo</span></span></a>
+                        <span class="element-divider"></span>
+                        <a href="<%=ResolveUrl("~/TopicPage.aspx?n=lien-he") %>" class="element"><span class="icon-phone"><span class="text">&nbsp;Liên hệ</span></span></a>
+                        <span class="element-divider"></span>
+                    </nav>
+                </nav>
+                <div style="margin: 7px 0 7px 0;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+                </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        Liên hệ
+                    </div>
+                    <div class="panel-content">
+                        <asp:Literal runat="server" ID="lblFooter" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments);
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+            m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-58195320-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="POS.LocalWeb.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Password" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">26331</Value>
+    </Setting>
+    <Setting Name="FileDatashare" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Workspaces\Datashare.mdb</Value>
+    </Setting>
+    <Setting Name="AuthTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

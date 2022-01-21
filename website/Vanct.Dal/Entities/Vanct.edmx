@@ -1,0 +1,974 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VanctModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BaseFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FilePath" Type="varchar" MaxLength="200" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="HtmlContent" Type="nvarchar(max)" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="50" />
+          <Property Name="Overview" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="BaseUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HomeGallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Link" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="OpenIdConfig">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ExternalSystem" />
+          </Key>
+          <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="ExternalSystem" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PosCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostLink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PostLinkType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="SmallOverviewContent" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostLinkType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="bit" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PosUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UniqueId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="DeviceUuid" Type="varchar" MaxLength="500" />
+          <Property Name="DeviceName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FirstLoginDate" Type="datetime" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="IsError" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductTypeId" Type="int" />
+          <Property Name="ProductTypeGroupId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PriceVnd" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="bit" Nullable="false" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsSaleOff" Type="bit" Nullable="false" />
+          <Property Name="IsHot" Type="bit" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Warranty" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Path" Type="varchar" MaxLength="50" />
+          <Property Name="ProductId" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Position" Type="int" Nullable="false" />
+          <Property Name="ProductTypeGroupId" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductTypeGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Position" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReportDaily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RUserId" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WorkTime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Total" Type="float" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReportDailyline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DailyId" Type="int" Nullable="false" />
+          <Property Name="ProductNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProductGroup" Type="varchar" MaxLength="50" />
+          <Property Name="Amout" Type="float" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="Om" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="Username" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpiredDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="AccessToken" Type="varchar" MaxLength="250" />
+          <Property Name="IsOnline" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SupportOnline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Skype" Type="nvarchar" MaxLength="255" />
+          <Property Name="Yahoo" Type="varchar" MaxLength="255" />
+          <Property Name="Facebook" Type="nvarchar" MaxLength="500" />
+          <Property Name="Hotline" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="ntext" />
+        </EntityType>
+        <Association Name="FK__Product__Product__1FCDBCEB">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__20C1E124">
+          <End Role="ProductTypeGroup" Type="Self.ProductTypeGroup" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__21B6055D">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__22AA2996">
+          <End Role="ProductTypeGroup" Type="Self.ProductTypeGroup" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductIm__Produ__239E4DCF">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="ProductImage" Type="Self.ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductTy__Produ__1ED998B2">
+          <End Role="ProductTypeGroup" Type="Self.ProductTypeGroup" Multiplicity="1" />
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductTy__Produ__1FCDBCEB">
+          <End Role="ProductTypeGroup" Type="Self.ProductTypeGroup" Multiplicity="1" />
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportDaily_RUser">
+          <End Role="RUser" Type="Self.RUser" Multiplicity="1" />
+          <End Role="ReportDaily" Type="Self.ReportDaily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReportDaily">
+              <PropertyRef Name="RUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportDailyline_ReportDaily">
+          <End Role="ReportDaily" Type="Self.ReportDaily" Multiplicity="1" />
+          <End Role="ReportDailyline" Type="Self.ReportDailyline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportDaily">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReportDailyline">
+              <PropertyRef Name="DailyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VanctModelStoreContainer">
+          <EntitySet Name="BaseFile" EntityType="Self.BaseFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BaseUser" EntityType="Self.BaseUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HomeGallery" EntityType="Self.HomeGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpenIdConfig" EntityType="Self.OpenIdConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosCompany" EntityType="Self.PosCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostLink" EntityType="Self.PostLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostLinkType" EntityType="Self.PostLinkType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PosUser" EntityType="Self.PosUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductImage" EntityType="Self.ProductImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTypeGroup" EntityType="Self.ProductTypeGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportDaily" EntityType="Self.ReportDaily" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportDailyline" EntityType="Self.ReportDailyline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RUser" EntityType="Self.RUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupportOnline" EntityType="Self.SupportOnline" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Product__Product__1FCDBCEB" Association="Self.FK__Product__Product__1FCDBCEB">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__20C1E124" Association="Self.FK__Product__Product__20C1E124">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroup" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__21B6055D" Association="Self.FK__Product__Product__21B6055D">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__22AA2996" Association="Self.FK__Product__Product__22AA2996">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroup" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductIm__Produ__239E4DCF" Association="Self.FK__ProductIm__Produ__239E4DCF">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductImage" EntitySet="ProductImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductTy__Produ__1ED998B2" Association="Self.FK__ProductTy__Produ__1ED998B2">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroup" />
+            <End Role="ProductType" EntitySet="ProductType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductTy__Produ__1FCDBCEB" Association="Self.FK__ProductTy__Produ__1FCDBCEB">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroup" />
+            <End Role="ProductType" EntitySet="ProductType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportDaily_RUser" Association="Self.FK_ReportDaily_RUser">
+            <End Role="RUser" EntitySet="RUser" />
+            <End Role="ReportDaily" EntitySet="ReportDaily" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportDailyline_ReportDaily" Association="Self.FK_ReportDailyline_ReportDaily">
+            <End Role="ReportDaily" EntitySet="ReportDaily" />
+            <End Role="ReportDailyline" EntitySet="ReportDailyline" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VanctModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VanctEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BaseFiles" EntityType="VanctModel.BaseFile" />
+          <EntitySet Name="BaseUsers" EntityType="VanctModel.BaseUser" />
+          <EntitySet Name="HomeGalleries" EntityType="VanctModel.HomeGallery" />
+          <EntitySet Name="OpenIdConfigs" EntityType="VanctModel.OpenIdConfig" />
+          <EntitySet Name="PosCompanies" EntityType="VanctModel.PosCompany" />
+          <EntitySet Name="PostLinks" EntityType="VanctModel.PostLink" />
+          <EntitySet Name="PostLinkTypes" EntityType="VanctModel.PostLinkType" />
+          <EntitySet Name="PosUsers" EntityType="VanctModel.PosUser" />
+          <EntitySet Name="Products" EntityType="VanctModel.Product" />
+          <EntitySet Name="ProductImages" EntityType="VanctModel.ProductImage" />
+          <EntitySet Name="ProductTypes" EntityType="VanctModel.ProductType" />
+          <EntitySet Name="ProductTypeGroups" EntityType="VanctModel.ProductTypeGroup" />
+          <EntitySet Name="ReportDailies" EntityType="VanctModel.ReportDaily" />
+          <EntitySet Name="ReportDailylines" EntityType="VanctModel.ReportDailyline" />
+          <EntitySet Name="RUsers" EntityType="VanctModel.RUser" />
+          <EntitySet Name="SupportOnlines" EntityType="VanctModel.SupportOnline" />
+          <EntitySet Name="Topics" EntityType="VanctModel.Topic" />
+          <AssociationSet Name="FK__Product__Product__1FCDBCEB" Association="VanctModel.FK__Product__Product__1FCDBCEB">
+            <End Role="ProductType" EntitySet="ProductTypes" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__20C1E124" Association="VanctModel.FK__Product__Product__20C1E124">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroups" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__21B6055D" Association="VanctModel.FK__Product__Product__21B6055D">
+            <End Role="ProductType" EntitySet="ProductTypes" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Product__Product__22AA2996" Association="VanctModel.FK__Product__Product__22AA2996">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroups" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductIm__Produ__239E4DCF" Association="VanctModel.FK__ProductIm__Produ__239E4DCF">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductImage" EntitySet="ProductImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductTy__Produ__1ED998B2" Association="VanctModel.FK__ProductTy__Produ__1ED998B2">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroups" />
+            <End Role="ProductType" EntitySet="ProductTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductTy__Produ__1FCDBCEB" Association="VanctModel.FK__ProductTy__Produ__1FCDBCEB">
+            <End Role="ProductTypeGroup" EntitySet="ProductTypeGroups" />
+            <End Role="ProductType" EntitySet="ProductTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportDaily_RUser" Association="VanctModel.FK_ReportDaily_RUser">
+            <End Role="RUser" EntitySet="RUsers" />
+            <End Role="ReportDaily" EntitySet="ReportDailies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ReportDailyline_ReportDaily" Association="VanctModel.FK_ReportDailyline_ReportDaily">
+            <End Role="ReportDaily" EntitySet="ReportDailies" />
+            <End Role="ReportDailyline" EntitySet="ReportDailylines" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BaseFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="HtmlContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Overview" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BaseUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HomeGallery">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageUrl" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OpenIdConfig">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="ExternalSystem" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ExternalSystem" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PosCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostLink">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostLinkType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SmallOverviewContent" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostLinkType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="Boolean" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PosUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UniqueId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DeviceUuid" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FirstLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="IsError" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductTypeId" Type="Int32" />
+          <Property Name="ProductTypeGroupId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PriceVnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="Boolean" Nullable="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsSaleOff" Type="Boolean" Nullable="false" />
+          <Property Name="IsHot" Type="Boolean" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Warranty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProductType" Relationship="VanctModel.FK__Product__Product__1FCDBCEB" FromRole="Product" ToRole="ProductType" />
+          <NavigationProperty Name="ProductTypeGroup" Relationship="VanctModel.FK__Product__Product__20C1E124" FromRole="Product" ToRole="ProductTypeGroup" />
+          <NavigationProperty Name="ProductType1" Relationship="VanctModel.FK__Product__Product__21B6055D" FromRole="Product" ToRole="ProductType" />
+          <NavigationProperty Name="ProductTypeGroup1" Relationship="VanctModel.FK__Product__Product__22AA2996" FromRole="Product" ToRole="ProductTypeGroup" />
+          <NavigationProperty Name="ProductImages" Relationship="VanctModel.FK__ProductIm__Produ__239E4DCF" FromRole="Product" ToRole="ProductImage" />
+        </EntityType>
+        <EntityType Name="ProductImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Path" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="VanctModel.FK__ProductIm__Produ__239E4DCF" FromRole="ProductImage" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <Property Name="ProductTypeGroupId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsHomeShowed" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="VanctModel.FK__Product__Product__1FCDBCEB" FromRole="ProductType" ToRole="Product" />
+          <NavigationProperty Name="Products1" Relationship="VanctModel.FK__Product__Product__21B6055D" FromRole="ProductType" ToRole="Product" />
+          <NavigationProperty Name="ProductTypeGroup" Relationship="VanctModel.FK__ProductTy__Produ__1ED998B2" FromRole="ProductType" ToRole="ProductTypeGroup" />
+          <NavigationProperty Name="ProductTypeGroup1" Relationship="VanctModel.FK__ProductTy__Produ__1FCDBCEB" FromRole="ProductType" ToRole="ProductTypeGroup" />
+        </EntityType>
+        <EntityType Name="ProductTypeGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Position" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="VanctModel.FK__Product__Product__20C1E124" FromRole="ProductTypeGroup" ToRole="Product" />
+          <NavigationProperty Name="Products1" Relationship="VanctModel.FK__Product__Product__22AA2996" FromRole="ProductTypeGroup" ToRole="Product" />
+          <NavigationProperty Name="ProductTypes" Relationship="VanctModel.FK__ProductTy__Produ__1ED998B2" FromRole="ProductTypeGroup" ToRole="ProductType" />
+          <NavigationProperty Name="ProductTypes1" Relationship="VanctModel.FK__ProductTy__Produ__1FCDBCEB" FromRole="ProductTypeGroup" ToRole="ProductType" />
+        </EntityType>
+        <EntityType Name="ReportDaily">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RUserId" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WorkTime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="RUser" Relationship="VanctModel.FK_ReportDaily_RUser" FromRole="ReportDaily" ToRole="RUser" />
+          <NavigationProperty Name="ReportDailylines" Relationship="VanctModel.FK_ReportDailyline_ReportDaily" FromRole="ReportDaily" ToRole="ReportDailyline" />
+        </EntityType>
+        <EntityType Name="ReportDailyline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DailyId" Type="Int32" Nullable="false" />
+          <Property Name="ProductNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amout" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Om" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReportDaily" Relationship="VanctModel.FK_ReportDailyline_ReportDaily" FromRole="ReportDailyline" ToRole="ReportDaily" />
+        </EntityType>
+        <EntityType Name="RUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiredDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="AccessToken" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IsOnline" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ReportDailies" Relationship="VanctModel.FK_ReportDaily_RUser" FromRole="RUser" ToRole="ReportDaily" />
+        </EntityType>
+        <EntityType Name="SupportOnline">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Skype" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Yahoo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Hotline" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Topic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Product__Product__1FCDBCEB">
+          <End Type="VanctModel.ProductType" Role="ProductType" Multiplicity="0..1" />
+          <End Type="VanctModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__20C1E124">
+          <End Type="VanctModel.ProductTypeGroup" Role="ProductTypeGroup" Multiplicity="1" />
+          <End Type="VanctModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__21B6055D">
+          <End Type="VanctModel.ProductType" Role="ProductType" Multiplicity="0..1" />
+          <End Type="VanctModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Product__Product__22AA2996">
+          <End Type="VanctModel.ProductTypeGroup" Role="ProductTypeGroup" Multiplicity="1" />
+          <End Type="VanctModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductIm__Produ__239E4DCF">
+          <End Type="VanctModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="VanctModel.ProductImage" Role="ProductImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductImage">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductTy__Produ__1ED998B2">
+          <End Type="VanctModel.ProductTypeGroup" Role="ProductTypeGroup" Multiplicity="1" />
+          <End Type="VanctModel.ProductType" Role="ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductTy__Produ__1FCDBCEB">
+          <End Type="VanctModel.ProductTypeGroup" Role="ProductTypeGroup" Multiplicity="1" />
+          <End Type="VanctModel.ProductType" Role="ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypeGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="ProductTypeGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportDaily_RUser">
+          <End Type="VanctModel.RUser" Role="RUser" Multiplicity="1" />
+          <End Type="VanctModel.ReportDaily" Role="ReportDaily" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReportDaily">
+              <PropertyRef Name="RUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ReportDailyline_ReportDaily">
+          <End Type="VanctModel.ReportDaily" Role="ReportDaily" Multiplicity="1" />
+          <End Type="VanctModel.ReportDailyline" Role="ReportDailyline" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportDaily">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReportDailyline">
+              <PropertyRef Name="DailyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VanctModelStoreContainer" CdmEntityContainer="VanctEntities">
+          <EntitySetMapping Name="BaseFiles">
+            <EntityTypeMapping TypeName="VanctModel.BaseFile">
+              <MappingFragment StoreEntitySet="BaseFile">
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="HtmlContent" ColumnName="HtmlContent" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BaseUsers">
+            <EntityTypeMapping TypeName="VanctModel.BaseUser">
+              <MappingFragment StoreEntitySet="BaseUser">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HomeGalleries">
+            <EntityTypeMapping TypeName="VanctModel.HomeGallery">
+              <MappingFragment StoreEntitySet="HomeGallery">
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OpenIdConfigs">
+            <EntityTypeMapping TypeName="VanctModel.OpenIdConfig">
+              <MappingFragment StoreEntitySet="OpenIdConfig">
+                <ScalarProperty Name="ExternalSystem" ColumnName="ExternalSystem" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosCompanies">
+            <EntityTypeMapping TypeName="VanctModel.PosCompany">
+              <MappingFragment StoreEntitySet="PosCompany">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostLinks">
+            <EntityTypeMapping TypeName="VanctModel.PostLink">
+              <MappingFragment StoreEntitySet="PostLink">
+                <ScalarProperty Name="IsHomeShowed" ColumnName="IsHomeShowed" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="SmallOverviewContent" ColumnName="SmallOverviewContent" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="PostLinkType" ColumnName="PostLinkType" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostLinkTypes">
+            <EntityTypeMapping TypeName="VanctModel.PostLinkType">
+              <MappingFragment StoreEntitySet="PostLinkType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsHomeShowed" ColumnName="IsHomeShowed" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PosUsers">
+            <EntityTypeMapping TypeName="VanctModel.PosUser">
+              <MappingFragment StoreEntitySet="PosUser">
+                <ScalarProperty Name="IsError" ColumnName="IsError" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="FirstLoginDate" ColumnName="FirstLoginDate" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="DeviceUuid" ColumnName="DeviceUuid" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="VanctModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+                <ScalarProperty Name="IsSaleOff" ColumnName="IsSaleOff" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="IsHomeShowed" ColumnName="IsHomeShowed" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PriceVnd" ColumnName="PriceVnd" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProductTypeGroupId" ColumnName="ProductTypeGroupId" />
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductImages">
+            <EntityTypeMapping TypeName="VanctModel.ProductImage">
+              <MappingFragment StoreEntitySet="ProductImage">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="VanctModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="IsHomeShowed" ColumnName="IsHomeShowed" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProductTypeGroupId" ColumnName="ProductTypeGroupId" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypeGroups">
+            <EntityTypeMapping TypeName="VanctModel.ProductTypeGroup">
+              <MappingFragment StoreEntitySet="ProductTypeGroup">
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportDailies">
+            <EntityTypeMapping TypeName="VanctModel.ReportDaily">
+              <MappingFragment StoreEntitySet="ReportDaily">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="WorkTime" ColumnName="WorkTime" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RUserId" ColumnName="RUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportDailylines">
+            <EntityTypeMapping TypeName="VanctModel.ReportDailyline">
+              <MappingFragment StoreEntitySet="ReportDailyline">
+                <ScalarProperty Name="Om" ColumnName="Om" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Amout" ColumnName="Amout" />
+                <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="DailyId" ColumnName="DailyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RUsers">
+            <EntityTypeMapping TypeName="VanctModel.RUser">
+              <MappingFragment StoreEntitySet="RUser">
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="AccessToken" ColumnName="AccessToken" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ExpiredDate" ColumnName="ExpiredDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportOnlines">
+            <EntityTypeMapping TypeName="VanctModel.SupportOnline">
+              <MappingFragment StoreEntitySet="SupportOnline">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Hotline" ColumnName="Hotline" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Yahoo" ColumnName="Yahoo" />
+                <ScalarProperty Name="Skype" ColumnName="Skype" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Topics">
+            <EntityTypeMapping TypeName="VanctModel.Topic">
+              <MappingFragment StoreEntitySet="Topic">
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

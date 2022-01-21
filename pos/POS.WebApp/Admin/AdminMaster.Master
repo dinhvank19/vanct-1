@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="POS.WebApp.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <title>POS Admin</title>
+    <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
+    <link href="~/Content/css/admin.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <script>
+            var WindownHeight = $(window).height();
+            var WindownWidth = $(window).width();
+        </script>
+        <telerik:RadMenu ID="theMenu" runat="server" Width="100%" ClickToOpen="True">
+            <Items>
+                <telerik:RadMenuItem runat="server" Text="Danh mục">
+                    <Items>
+                        <telerik:RadMenuItem runat="server" Text="Người dùng" NavigateUrl="~/Admin/UserList.aspx" />
+                        <telerik:RadMenuItem runat="server" Text="Thực đơn - Món" NavigateUrl="~/Admin/ProductList.aspx" />
+                        <telerik:RadMenuItem runat="server" Text="Nhóm Thực đơn - Món" NavigateUrl="~/Admin/ProductGroupList.aspx" />
+                        <telerik:RadMenuItem runat="server" Text="Bàn" NavigateUrl="~/Admin/TableList.aspx" />
+                        <telerik:RadMenuItem runat="server" Text="Khu vực bàn" NavigateUrl="~/Admin/AreaList.aspx" Visible="False" />
+                    </Items>
+                </telerik:RadMenuItem>
+                <telerik:RadMenuItem runat="server" Text="Cá nhân">
+                    <Items>
+                        <telerik:RadMenuItem runat="server" Text="Đổi mật khẩu" NavigateUrl="~/ChangePassword.aspx" />
+                        <telerik:RadMenuItem runat="server" Text="Thoát" NavigateUrl="~/Logout.aspx" />
+                    </Items>
+                </telerik:RadMenuItem>
+            </Items>
+        </telerik:RadMenu>
+        <asp:ContentPlaceHolder ID="header" runat="server" />
+        <div style="padding: 10px;">
+            <asp:ContentPlaceHolder ID="body" runat="server" />
+        </div>
+
+        <asp:ContentPlaceHolder ID="footer" runat="server" />
+        <div>
+        </div>
+    </form>
+</body>
+</html>
+

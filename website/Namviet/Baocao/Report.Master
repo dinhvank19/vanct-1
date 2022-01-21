@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Report.master.cs" Inherits="Namviet.Baocao.Report" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="~/assets/bootstrap3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/stylesheets/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/assets/stylesheets/application.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"/>
+        <asp:ScriptManager runat="server" ID="ScriptManager1">
+            <Scripts>
+                <asp:ScriptReference Path="~/assets/javascripts/jquery-2.2.4.min.js" />
+                <asp:ScriptReference Path="~/assets/bootstrap3.3.7/js/bootstrap.min.js" />
+                <asp:ScriptReference Path="~/assets/javascripts/bootstrap-datepicker.min.js" />
+                <asp:ScriptReference Path="~/assets/javascripts/application.js" />
+            </Scripts>
+        </asp:ScriptManager>
+    </form>
+</body>
+</html>

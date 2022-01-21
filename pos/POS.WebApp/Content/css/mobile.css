@@ -1,0 +1,215 @@
+﻿body {
+  overflow: hidden;
+  cursor: default;
+  min-width: 1024px;
+}
+.orange {
+  color: #f26522;
+}
+.red {
+  color: #d9534f;
+}
+.blue {
+  color: #4986e7;
+}
+.green {
+  color: limegreen;
+}
+.gray {
+  color: rgba(0, 0, 0, 0.6);
+}
+.yellow {
+  color: yellow;
+}
+.clr {
+  clear: both;
+}
+.divBillPrintContent {
+  font-family: Arial;
+  width: 220px;
+  background: #fff;
+  color: #000;
+  padding-bottom: 30px;
+}
+.divBillPrintContent div.line {
+  padding: 0;
+  border-bottom: 1px dashed #000;
+}
+.divBillPrintContent div.line:last-child {
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 30px;
+  border: 0;
+}
+.divOrderPrintContent {
+  font-family: Arial;
+  width: 220px;
+  background: #fff;
+  color: #000;
+  padding-bottom: 30px;
+}
+.divOrderPrintContent table {
+  width: 100%;
+}
+.divOrderPrintContent table tr {
+  border-top: 1px dashed #000;
+}
+.divOrderPrintContent table tr > td {
+  line-height: 20px;
+  padding: 5px;
+}
+.divOrderPrintContent table tr:first-child {
+  border: 0;
+}
+.divOrderPrintContent .print-header {
+  text-align: center;
+}
+.toolbar {
+  background-color: #dedede;
+  padding: 3px;
+}
+.toolbar input[type=text] {
+  width: 200px;
+}
+.toolbar table {
+  width: 100%;
+}
+.toolbar table tr > td:first-child {
+  padding-left: 2px;
+}
+.toolbar table tr > td {
+  padding-right: 5px;
+}
+.toolbar table tr > td:last-child {
+  padding-right: 2px;
+  text-align: right;
+}
+.divTables {
+  overflow: hidden;
+  overflow-y: auto;
+}
+.divTables .panel,
+.divTables .panel-heading {
+  border-radius: 0;
+}
+.divTables .panel-body {
+  padding: 10px 0 0 10px;
+}
+.divTables .panel {
+  margin: 3px 0 3px 0;
+}
+.divTables .panel .table {
+  zoom: 130%;
+  border: 1px solid #ccc;
+  background-color: #fcfcfc;
+  padding: 10px;
+  float: left;
+  width: 150px;
+  height: 80px;
+  margin: 0 10px 10px 0;
+}
+.divTables .panel .printed {
+  background: url("../icons/expired.png") no-repeat top 5px right 5px #4986e7;
+  color: #fff;
+}
+.divTables .panel .printed .orange,
+.divTables .panel .printed .blue {
+  color: #fff;
+}
+.divTables .panel .printed-processed {
+  background: url("../icons/checked16.png") no-repeat top 5px right 5px #4986e7;
+  color: yellow;
+}
+.divTables .panel .printed-processed .orange {
+  color: #fff;
+}
+.divTables .panel .printed-processed .blue {
+  color: yellow;
+}
+.divTables .panel .processed {
+  background: url("../icons/checked16.png") no-repeat top 5px right 5px;
+}
+.divTables .panel .pending {
+  background: url("../icons/expired.png") no-repeat top 5px right 5px;
+}
+.divTables .panel .locked {
+  background: url("../icons/locked.png") no-repeat top 5px right 5px;
+}
+.panelRight {
+  margin: -1px;
+}
+.panelRight .divProducts {
+  overflow: auto;
+}
+.panelRight .divProducts .product {
+  zoom: 120%;
+  margin: 0 5px 5px 0;
+  border: 1px solid #ccc;
+  background-color: #fcfcfc;
+  padding: 8px;
+  float: left;
+  width: 120px;
+  height: 80px;
+}
+.panelRight .products-bar {
+  height: 40px;
+  border-top: 1px solid #ccc;
+  background-color: #dedede;
+}
+.panelRight .products-bar table {
+  height: 100%;
+  width: 100%;
+}
+.panelRight .products-bar table tr > td:first-child {
+  padding-left: 10px;
+}
+.panelRight .products-bar table tr > td:last-child {
+  padding-right: 10px;
+  text-align: right;
+}
+.panelLeft {
+  margin: -1px;
+}
+.panelLeft .divBill {
+  overflow: auto;
+}
+.panelLeft .divBill .bill-line {
+  zoom: 120%;
+  padding: 7px 4px 4px 3px;
+  border-bottom: 1px solid #cccccc;
+}
+.panelLeft .divBill .bill-line table {
+  width: 100%;
+}
+.panelLeft .divBill .bill-line table tr > td:first-child,
+.panelLeft .divBill .bill-line table tr > td:last-child {
+  width: 30px;
+}
+.panelLeft .divBill .bill-line table tr > td:last-child {
+  text-align: right;
+}
+.panelLeft .divBill .bill-line .name {
+  font-weight: bold;
+}
+.panelLeft .divBill .bill-line .total {
+  text-align: right;
+  font-weight: bold;
+}
+.panelLeft .order-summary-bar {
+  height: 40px;
+  border-top: 1px solid #ccc;
+  background-color: #dedede;
+  font-weight: bold;
+  font-size: 16px;
+}
+.panelLeft .order-summary-bar table {
+  height: 100%;
+  width: 100%;
+}
+.panelLeft .order-summary-bar table tr > td:first-child {
+  padding-left: 10px;
+}
+.panelLeft .order-summary-bar table tr > td:last-child {
+  padding-right: 10px;
+  text-align: right;
+}

@@ -1,0 +1,259 @@
+﻿body {
+    overflow: hidden;
+    cursor: default;
+    min-width: 1024px;
+}
+
+.orange {
+    color: #f26522;
+}
+
+.red {
+    color: #d9534f;
+}
+
+.blue {
+    color: #4986e7;
+}
+
+.green {
+    color: limegreen;
+}
+
+.gray {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.yellow {
+    color: yellow;
+}
+
+.clr {
+    clear: both;
+}
+
+.divBillPrintContent{
+    font-family: Arial;
+    width: 220px;
+    background: #fff;
+    color: #000;
+    div.line{
+        padding: 0;
+        border-bottom: 1px dashed #000;
+    }
+
+    div.line:last-child{
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 30px;
+        border: 0;
+    }
+    padding-bottom: 30px;
+}
+
+.divOrderPrintContent{
+    font-family: Arial;
+    width: 220px;
+    background: #fff;
+    color: #000;
+    table{
+        width: 100%;
+        tr{
+            border-top: 1px dashed #000;
+            > td {
+                line-height:20px;
+                padding: 5px;
+            }
+        }
+        tr:first-child{
+            border: 0;
+        }
+    }
+    .print-header{
+        text-align: center;
+    }
+    padding-bottom: 30px;
+}
+
+.toolbar {
+    background-color: #dedede;
+    padding: 3px;
+
+    input[type=text] {
+        width: 200px;
+    }
+
+    table {
+        width: 100%;
+
+        tr > td:first-child {
+            padding-left: 2px;
+        }
+
+        tr > td {
+            padding-right: 5px;
+        }
+
+        tr > td:last-child {
+            padding-right: 2px;
+            text-align: right;
+        }
+    }
+}
+
+.divTables {
+    overflow: hidden;
+    overflow-y: auto;
+
+    .panel, .panel-heading {
+        border-radius: 0;
+    }
+
+    .panel-body {
+        padding: 10px 0 0 10px;
+    }
+
+    .panel {
+        margin: 3px 0 3px 0;
+
+        .table {
+            zoom: 130%;
+            border: 1px solid #ccc;
+            background-color: #fcfcfc;
+            padding: 10px;
+            float: left;
+            width: 150px;
+            height: 80px;
+            margin: 0 10px 10px 0;
+        }
+
+        .printed{
+            background: url("../icons/expired.png") no-repeat top 5px right 5px #4986e7;
+            color: #fff;
+            .orange, .blue{
+                color: #fff;
+            }
+        }
+
+        .printed-processed{
+            background: url("../icons/checked16.png") no-repeat top 5px right 5px #4986e7;
+            color: yellow;
+            .orange{
+                color: #fff;
+            }
+            .blue{
+                color: yellow;
+            }
+        }
+
+        .processed{
+            background: url("../icons/checked16.png") no-repeat top 5px right 5px;
+        }
+
+        .pending{
+            background: url("../icons/expired.png") no-repeat top 5px right 5px
+        }
+
+        .locked{
+            background: url("../icons/locked.png") no-repeat top 5px right 5px
+        }
+    }
+}
+
+
+.panelRight {
+    margin: -1px;
+
+    .divProducts {
+        overflow: auto;
+
+        .product {
+            zoom: 120%;
+            margin: 0 5px 5px 0;
+            border: 1px solid #ccc;
+            background-color: #fcfcfc;
+            padding: 8px;
+            float: left;
+            width: 120px;
+            height: 80px;
+        }
+    }
+
+    .products-bar {
+        height: 40px;
+        border-top: 1px solid #ccc;
+        background-color: #dedede;
+
+        table {
+            height: 100%;
+            width: 100%;
+
+            tr > td:first-child {
+                padding-left: 10px;
+            }
+
+            tr > td:last-child {
+                padding-right: 10px;
+                text-align: right;
+            }
+        }
+    }
+}
+
+.panelLeft {
+    margin: -1px;
+
+    .divBill {
+        overflow: auto;
+
+        .bill-line {
+            zoom: 120%;
+            padding: 7px 4px 4px 3px;
+            border-bottom: 1px solid #cccccc;
+
+            table {
+                width: 100%;
+
+
+                tr > td:first-child, tr > td:last-child {
+                    width: 30px;
+                }
+
+                tr > td:last-child {
+                    text-align: right;
+                }
+            }
+
+            .name {
+                font-weight: bold;
+            }
+
+            .total {
+                text-align: right;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .order-summary-bar {
+        height: 40px;
+        border-top: 1px solid #ccc;
+        background-color: #dedede;
+        font-weight: bold;
+        font-size: 16px;
+
+        table {
+            height: 100%;
+            width: 100%;
+
+            tr > td:first-child {
+                padding-left: 10px;
+            }
+
+            tr > td:last-child {
+                padding-right: 10px;
+                text-align: right;
+            }
+        }
+    }
+}

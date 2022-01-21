@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CmbProductTypeGroup.ascx.cs" Inherits="Vanct.WebApp.UserControls.CmbProductTypeGroup" %>
+<telerik:RadComboBox ID="combobox" Runat="server" AutoPostBack="True" OnSelectedIndexChanged="ComboboxSelectedIndexChanged"/>
