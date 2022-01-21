@@ -27,7 +27,7 @@ namespace POS.LocalWeb.Biz
         {
             ddlChangedToTableId.DataSource = _db.GetTables().Where(i => i.TableNo != PosContext.RequestTableNo);
             ddlChangedToTableId.DataTextField = "TableNo";
-            ddlChangedToTableId.DataValueField = "No";
+            ddlChangedToTableId.DataValueField = "TableNo";
             ddlChangedToTableId.DataBind();
         }
 
