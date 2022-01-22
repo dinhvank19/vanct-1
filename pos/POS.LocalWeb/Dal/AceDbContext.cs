@@ -236,7 +236,7 @@ namespace POS.LocalWeb.Dal
                     using (var command = _connection.CreateCommand())
                     {
                         command.CommandType = CommandType.Text;
-                        command.CommandText = string.Format("UPDATE [BAN] SET SOBAN={0} WHERE MAQL IN({1})", newTableId, orderLineSelectedIDs);
+                        command.CommandText = string.Format("UPDATE [BAN] SET SOBAN = '{0}' WHERE MAQL IN({1})", newTableId, orderLineSelectedIDs);
                         command.ExecuteNonQuery();
                     }
                 }
