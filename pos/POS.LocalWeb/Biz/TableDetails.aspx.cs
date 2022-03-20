@@ -191,7 +191,6 @@ namespace POS.LocalWeb.Biz
             lblCheckIn.Text = CurrentTable.InDate?.ToString("yyyy-MM-dd HH:mm") ?? "";
             lblTableNo.Text = CurrentTable.TableNo;
             lblTotal.Text = CurrentTable.Total.ToMoney();
-
             gridLines.DataSource = CurrentTable.Lines;
             gridLines.DataBind();
         }

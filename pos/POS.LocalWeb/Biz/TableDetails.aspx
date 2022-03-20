@@ -92,8 +92,7 @@
                         </ItemTemplate>
                     </telerik:RadListView>
                     <tr>
-                        <td>
-                            <asp:Literal runat="server" ID="Literal4" /></td>
+                        <td></td>
                         <td class="total text-right">Total:
                     <asp:Literal runat="server" ID="lblTotal" /></td>
                     </tr>

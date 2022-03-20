@@ -40,6 +40,7 @@
                     </td>
                     <td style="width: 50px;">
                         <button type="button" class="btn btn-success" onclick="search();">
+                            <span class="badge"><asp:Literal runat="server" ID="lblOrderLinesCounter" /></span>
                             <span class="fa fa-search"></span>
                         </button>
                     </td>

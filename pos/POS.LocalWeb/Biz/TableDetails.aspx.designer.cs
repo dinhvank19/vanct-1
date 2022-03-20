@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace POS.LocalWeb.Biz {
-    
-    
-    public partial class TableDetails {
-        
+namespace POS.LocalWeb.Biz
+{
+
+
+    public partial class TableDetails
+    {
+
         /// <summary>
         /// RadAjaxLoadingPanel1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel1;
-        
+
         /// <summary>
         /// RadAjaxPanel1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel1;
-        
+
         /// <summary>
         /// changeTablePanel control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel changeTablePanel;
-        
+
         /// <summary>
         /// buttonsPanel control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel buttonsPanel;
-        
+
         /// <summary>
         /// lblTableNo control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblTableNo;
-        
+
         /// <summary>
         /// lblMoment control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblMoment;
-        
+
         /// <summary>
         /// lblCheckIn control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblCheckIn;
-        
+
         /// <summary>
         /// gridLines control.
         /// </summary>
@@ -83,16 +85,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadListView gridLines;
-        
-        /// <summary>
-        /// Literal4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Literal4;
-        
+
         /// <summary>
         /// lblTotal control.
         /// </summary>
@@ -101,7 +94,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal lblTotal;
-        
+
         /// <summary>
         /// txtDeleteOrderLineId control.
         /// </summary>
@@ -110,7 +103,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField txtDeleteOrderLineId;
-        
+
         /// <summary>
         /// btnPrintOrder control.
         /// </summary>
@@ -119,7 +112,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrintOrder;
-        
+
         /// <summary>
         /// btnPrintTemporaryOrder control.
         /// </summary>
@@ -128,7 +121,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrintTemporaryOrder;
-        
+
         /// <summary>
         /// btnDeleteProduct control.
         /// </summary>
@@ -137,7 +130,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeleteProduct;
-        
+
         /// <summary>
         /// btnPerformChangeTable control.
         /// </summary>
@@ -146,7 +139,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPerformChangeTable;
-        
+
         /// <summary>
         /// txtMoveToNewTableOrderLineSelectedIDs control.
         /// </summary>
@@ -155,7 +148,7 @@ namespace POS.LocalWeb.Biz {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField txtMoveToNewTableOrderLineSelectedIDs;
-        
+
         /// <summary>
         /// ddlChangedToTableId control.
         /// </summary>

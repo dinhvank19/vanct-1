@@ -11,6 +11,7 @@ namespace POS.LocalWeb.Biz
     {
         private readonly AceDbContext _db = new AceDbContext();
         public string CurrentColumnOption;
+        public ReportTable CurrentTable;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,6 +40,16 @@ namespace POS.LocalWeb.Biz
 
             gridProducts.DataSource = products;
             gridProducts.DataBind();
+            OrderLinesCounter();
+        }
+
+        private void OrderLinesCounter()
+        {
+            CurrentTable = _db.GetTable(PosContext.RequestTableNo);
+            if (CurrentTable.Total > 0)
+            {
+                lblOrderLinesCounter.Text = CurrentTable.Lines.Count.ToString();
+            }
         }
 
         protected void BtnAddProduct(object sender, EventArgs e)
@@ -67,6 +78,7 @@ namespace POS.LocalWeb.Biz
             _db.BusyTable(PosContext.RequestTableNo);
             txtGhiChu.Text = string.Empty;
             txtAmount.Text = "";
+            OrderLinesCounter();
         }
 
         protected void BtnSearch(object sender, EventArgs e)
