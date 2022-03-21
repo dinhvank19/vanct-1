@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Biz/Site1.Master" AutoEventWireup="true" CodeBehind="TableDetails.aspx.cs" Inherits="POS.LocalWeb.Biz.TableDetails" %>
 
 <%@ Import Namespace="POS.LocalWeb.AppCode" %>
+<%@ Import Namespace="POS.LocalWeb.Dal" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -22,32 +23,45 @@
                             <button type="button" class="btn btn-info" onclick="selectingTableForChange()">
                                 <span class="fa fa-exchange"></span>
                                 Chuyển bàn
+                           
                             </button>
                             <button type="button" class="btn btn-danger" onclick="cancelChangeTable()">
                                 <span class="fa fa-ban"></span>
                                 Huỷ
+                           
                             </button>
                         </asp:Panel>
                         <asp:Panel runat="server" ID="buttonsPanel">
                             <button type="button" class="btn btn-info" onclick="changeTable()">
                                 <span class="fa fa-exchange"></span>
                                 C.bàn
+                           
                             </button>
                             <button type="button" class="btn btn-warning" onclick="printTemporaryOrder()">
-                                <span class="fa fa-print"></span> Bill
+                                <span class="fa fa-print"></span>Bill
+                           
                             </button>
                             <button type="button" class="btn btn-primary" onclick="printOrder();">
                                 <span class="fa fa-print"></span>
                                 Bếp
+                           
                             </button>
                             <button type="button" class="btn btn-success" onclick="goProducts()">
                                 <span class="fa fa-plus"></span>
                                 Món
+                           
                             </button>
+                            <%
+                                if (new AceDbContext().IsRefundable())
+                                {
+                            %>
                             <button type="button" class="btn btn-danger" onclick="goProductsButRefund()">
                                 <span class="fa fa-minus"></span>
                                 Món
                             </button>
+                            <%
+                                }
+                            %>
                         </asp:Panel>
                     </td>
                 </tr>
@@ -56,10 +70,13 @@
         <div class="divDetails">
             <div class="panel panel-danger">
                 <div class="panel-heading">
-                    <strong>
-                        Bàn <asp:Literal runat="server" ID="lblTableNo" /> - [<asp:Literal runat="server" ID="lblMoment" />]
+                    <strong>Bàn
+                        <asp:Literal runat="server" ID="lblTableNo" />
+                        - [<asp:Literal runat="server" ID="lblMoment" />]
+                       
                         <br />
                         Check In:
+                       
                         <asp:Literal runat="server" ID="lblCheckIn" />
                     </strong>
                 </div>
@@ -98,7 +115,8 @@
                     <tr>
                         <td></td>
                         <td class="total text-right">Total:
-                    <asp:Literal runat="server" ID="lblTotal" /></td>
+                   
+                            <asp:Literal runat="server" ID="lblTotal" /></td>
                     </tr>
                 </table>
             </div>
@@ -116,12 +134,14 @@
                     <div class="modal-body">
                         <h4 class="modal-title">Chuyển đến bàn nào ?</h4>
                         <asp:HiddenField runat="server" ID="txtMoveToNewTableOrderLineSelectedIDs" />
-                        <asp:DropDownList runat="server" ID="ddlChangedToTableId" CssClass="form-control"/>
+                        <asp:DropDownList runat="server" ID="ddlChangedToTableId" CssClass="form-control" />
                         <button type="button" class="btn btn-success" onclick="performChangeTable()">
                             OK
+                       
                         </button>
                         <button type="button" class="btn btn-danger" onclick="closeChangeTableModal()">
                             Đóng
+                       
                         </button>
                     </div>
                 </div>
@@ -136,7 +156,7 @@
         }
         function performChangeTable() {
             var selectedIDs = [];
-            $('.order-line.fa.fa-check-square-o').each(function(index, element) {
+            $('.order-line.fa.fa-check-square-o').each(function (index, element) {
                 selectedIDs.push("'" + $(element).data('id') + "'");
             });
 

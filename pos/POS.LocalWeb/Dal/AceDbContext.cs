@@ -66,18 +66,18 @@ namespace POS.LocalWeb.Dal
                             tables.MergeItem(new ReportTable
                             {
                                 TableNo = dataReader["MABAN"] as string,
-                                IsBusy = (bool) dataReader["COKHACH"],
-                                HasChanged = (bool) dataReader["CODOI"],
-                                IsPrinted = (bool) dataReader["INBILL"],
-                                No = (int) dataReader["STT"],
+                                IsBusy = (bool)dataReader["COKHACH"],
+                                HasChanged = (bool)dataReader["CODOI"],
+                                IsPrinted = (bool)dataReader["INBILL"],
+                                No = (int)dataReader["STT"],
                                 InDate = dataReader["GIOVAO"] != DBNull.Value
-                                    ? (DateTime) dataReader["GIOVAO"]
-                                    : (DateTime?) null,
+                                    ? (DateTime)dataReader["GIOVAO"]
+                                    : (DateTime?)null,
                                 OutDate = dataReader["GIORA"] != DBNull.Value
-                                    ? (DateTime) dataReader["GIORA"]
-                                    : (DateTime?) null,
+                                    ? (DateTime)dataReader["GIORA"]
+                                    : (DateTime?)null,
                                 Discount = dataReader["GIAM"] != DBNull.Value
-                                    ? (int) dataReader["GIAM"]
+                                    ? (int)dataReader["GIAM"]
                                     : 0,
                                 Servicer = dataReader["PHUCVU"] as string
                             });
@@ -105,15 +105,15 @@ namespace POS.LocalWeb.Dal
                                 TableNo = tableNo,
                                 ProductName = dataReader["TENHANG"] as string,
                                 ProductNo = dataReader["MAHG"] as string,
-                                Amout = (double) dataReader["SOLUONG"],
-                                Price = (int) dataReader["DONGIA"],
+                                Amout = (double)dataReader["SOLUONG"],
+                                Price = (int)dataReader["DONGIA"],
                                 Om = dataReader["DVT"] as string,
                                 ProductGroup = dataReader["NHOM"] as string,
-                                DaBao = (bool) dataReader["DABAO"],
+                                DaBao = (bool)dataReader["DABAO"],
                                 InDate = dataReader["NGAYGIO"] != DBNull.Value
-                                    ? (DateTime) dataReader["NGAYGIO"]
-                                    : (DateTime?) null,
-                                IsPrinted = (byte) dataReader["INCHUA"] == 0,
+                                    ? (DateTime)dataReader["NGAYGIO"]
+                                    : (DateTime?)null,
+                                IsPrinted = (byte)dataReader["INCHUA"] == 0,
                                 GhiChu = dataReader["GHICHU"] as string
                             });
                         }
@@ -124,6 +124,25 @@ namespace POS.LocalWeb.Dal
                     // save cache
                     //Cacher.Set(CacheTables, tables);
                     return tables;
+                }
+            }
+        }
+
+        public bool IsRefundable()
+        {
+            using (_connection = new OleDbConnection(_connectionString))
+            {
+                _connection.Open();
+                using (var command = _connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    var isRefundable = false;
+                    command.CommandText = "select CHO_PHEP_TRA from [TUY CHON];";
+                    using (var dataReader = command.ExecuteReader())
+                        if (dataReader.Read())
+                            isRefundable = (bool)dataReader["CHO_PHEP_TRA"];
+
+                    return isRefundable;
                 }
             }
         }
@@ -158,18 +177,18 @@ namespace POS.LocalWeb.Dal
                             table = new ReportTable
                             {
                                 TableNo = dataReader["MABAN"] as string,
-                                IsBusy = (bool) dataReader["COKHACH"],
-                                HasChanged = (bool) dataReader["CODOI"],
-                                IsPrinted = (bool) dataReader["INBILL"],
-                                No = (int) dataReader["STT"],
+                                IsBusy = (bool)dataReader["COKHACH"],
+                                HasChanged = (bool)dataReader["CODOI"],
+                                IsPrinted = (bool)dataReader["INBILL"],
+                                No = (int)dataReader["STT"],
                                 InDate = dataReader["GIOVAO"] != DBNull.Value
-                                    ? (DateTime) dataReader["GIOVAO"]
-                                    : (DateTime?) null,
+                                    ? (DateTime)dataReader["GIOVAO"]
+                                    : (DateTime?)null,
                                 OutDate = dataReader["GIORA"] != DBNull.Value
-                                    ? (DateTime) dataReader["GIORA"]
-                                    : (DateTime?) null,
+                                    ? (DateTime)dataReader["GIORA"]
+                                    : (DateTime?)null,
                                 Discount = dataReader["GIAM"] != DBNull.Value
-                                    ? (int) dataReader["GIAM"]
+                                    ? (int)dataReader["GIAM"]
                                     : 0,
                                 Servicer = dataReader["PHUCVU"] as string
                             };
@@ -198,15 +217,15 @@ namespace POS.LocalWeb.Dal
                                 TableNo = tableno,
                                 ProductName = dataReader["TENHANG"] as string,
                                 ProductNo = dataReader["MAHG"] as string,
-                                Amout = (double) dataReader["SOLUONG"],
-                                Price = (int) dataReader["DONGIA"],
+                                Amout = (double)dataReader["SOLUONG"],
+                                Price = (int)dataReader["DONGIA"],
                                 Om = dataReader["DVT"] as string,
                                 ProductGroup = dataReader["NHOM"] as string,
-                                DaBao = (bool) dataReader["DABAO"],
+                                DaBao = (bool)dataReader["DABAO"],
                                 InDate = dataReader["NGAYGIO"] != DBNull.Value
-                                    ? (DateTime) dataReader["NGAYGIO"]
-                                    : (DateTime?) null,
-                                IsPrinted = (byte) dataReader["INCHUA"] == 0,
+                                    ? (DateTime)dataReader["NGAYGIO"]
+                                    : (DateTime?)null,
+                                IsPrinted = (byte)dataReader["INCHUA"] == 0,
                                 GhiChu = dataReader["GHICHU"] as string
                             });
                         }
@@ -331,7 +350,7 @@ namespace POS.LocalWeb.Dal
         {
             // read cache
             if (CacheContext.Cacher.IsSet(CacheContext.CacheProducts))
-                return (IList<ReportProduct>) CacheContext.Cacher.Get(CacheContext.CacheProducts);
+                return (IList<ReportProduct>)CacheContext.Cacher.Get(CacheContext.CacheProducts);
 
             var products = new List<ReportProduct>();
             using (_connection = new OleDbConnection(_connectionString))
@@ -340,7 +359,14 @@ namespace POS.LocalWeb.Dal
                 using (var command = _connection.CreateCommand())
                 {
                     command.CommandType = CommandType.Text;
-                    command.CommandText = "select TENHANG, MAHG, NHOM, MUC, DONGIA, DVT, HINH from [DANH MUC HANG];";
+
+                    var defaultPriceColumnName = "DONGIA";
+                    command.CommandText = "select DON_GIA_MAC_DINH from [TUY CHON];";
+                    using (var dataReader = command.ExecuteReader())
+                        if (dataReader.Read())
+                            defaultPriceColumnName = dataReader["DON_GIA_MAC_DINH"] as string;
+
+                    command.CommandText = $"select TENHANG, MAHG, NHOM, MUC, {defaultPriceColumnName}, DVT, HINH from [DANH MUC HANG];";
                     using (var dataReader = command.ExecuteReader())
                     {
                         if (dataReader == null)
@@ -353,7 +379,7 @@ namespace POS.LocalWeb.Dal
                                 Id = dataReader["MAHG"] as string,
                                 Name = dataReader["TENHANG"] as string,
                                 Group = dataReader["NHOM"] as string,
-                                Price = (double) dataReader["DONGIA"],
+                                Price = (double)dataReader[defaultPriceColumnName],
                                 Dvt = dataReader["DVT"] as string,
                                 Muc = dataReader["MUC"] as string,
                                 ImagePath = dataReader["HINH"] as string
@@ -379,7 +405,7 @@ namespace POS.LocalWeb.Dal
         {
             // read cache
             if (CacheContext.Cacher.IsSet(CacheContext.CacheGroups))
-                return (IList<ReportGroup>) CacheContext.Cacher.Get(CacheContext.CacheGroups);
+                return (IList<ReportGroup>)CacheContext.Cacher.Get(CacheContext.CacheGroups);
 
             var groups = new List<ReportGroup>();
             using (_connection = new OleDbConnection(_connectionString))
@@ -400,7 +426,7 @@ namespace POS.LocalWeb.Dal
                             {
                                 Id = dataReader["NHOM"] as string,
                                 Name = dataReader["NHOM"] as string,
-                                IsPrint = (bool) dataReader["IN"]
+                                IsPrint = (bool)dataReader["IN"]
                                 //Printer = dataReader["MAYIN"] as string
                             });
                         }
@@ -421,7 +447,7 @@ namespace POS.LocalWeb.Dal
         {
             // read cache
             if (CacheContext.Cacher.IsSet(CacheContext.CacheExGroups))
-                return (IList<ReportExGroup>) CacheContext.Cacher.Get(CacheContext.CacheExGroups);
+                return (IList<ReportExGroup>)CacheContext.Cacher.Get(CacheContext.CacheExGroups);
 
             var groups = new List<ReportExGroup>();
             using (_connection = new OleDbConnection(_connectionString))
@@ -441,9 +467,9 @@ namespace POS.LocalWeb.Dal
                             groups.Add(new ReportExGroup
                             {
                                 Name = dataReader["MUC"] as string,
-                                IsPrint = (bool) dataReader["IN"],
+                                IsPrint = (bool)dataReader["IN"],
                                 Printer = dataReader["MAYIN"] as string,
-                                IsTemporaryPrint = (bool) dataReader["MAY_IN_TAM_TINH"]
+                                IsTemporaryPrint = (bool)dataReader["MAY_IN_TAM_TINH"]
                             });
                         }
                     }
@@ -573,7 +599,7 @@ namespace POS.LocalWeb.Dal
                         if (dataReader == null || !dataReader.Read())
                             return 0;
 
-                        return (double) dataReader["TOTAL"];
+                        return (double)dataReader["TOTAL"];
                     }
                 }
             }
