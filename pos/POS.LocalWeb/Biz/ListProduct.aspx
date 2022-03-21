@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Biz/Site1.Master" AutoEventWireup="true" CodeBehind="ListProduct.aspx.cs" Inherits="POS.LocalWeb.Biz.ListProduct" %>
 
+<%@ Import Namespace="POS.LocalWeb.AppCode" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="header" runat="server">
@@ -32,6 +34,7 @@
                         <button type="button" class="btn btn-danger" onclick="goBack();">
                             <span class="fa fa-chevron-left"></span>
                             Bàn
+                           
                             <asp:Literal runat="server" ID="lblTableNo" />
                         </button>
                     </td>
@@ -40,7 +43,8 @@
                     </td>
                     <td style="width: 50px;">
                         <button type="button" class="btn btn-success" onclick="search();">
-                            <span class="badge"><asp:Literal runat="server" ID="lblOrderLinesCounter" /></span>
+                            <span class="badge">
+                                <asp:Literal runat="server" ID="lblOrderLinesCounter" /></span>
                             <span class="fa fa-search"></span>
                         </button>
                     </td>
@@ -48,19 +52,27 @@
             </table>
         </div>
         <asp:Panel runat="server" ID="panelList">
-            <telerik:RadListView ID="gridProducts" runat="server" ItemPlaceholderID="productsContainer">
-                <LayoutTemplate>
-                    <div class="divProducts" id="divProducts">
+            <div class="divProducts" id="divProducts">
+                <asp:Panel runat="server" ID="panelMessage">
+                    <div class="alert alert-danger" role="alert">
+                        Không thể trả món !
+                    </div>
+                </asp:Panel>
+                <telerik:RadListView ID="gridProducts" runat="server" ItemPlaceholderID="productsContainer">
+                    <LayoutTemplate>
+
+
                         <asp:PlaceHolder ID="productsContainer" runat="server"></asp:PlaceHolder>
                         <div class="clr"></div>
-                    </div>
-                </LayoutTemplate>
-                <ItemTemplate>
-                    <div <%#Eval("BackgroundPhoto") %> class="product product-x<%= CurrentColumnOption %>" onclick="ShowAddProductDialog('<%#Eval("Id") %>', '<%#Eval("Name") %>')">
-                        <span><%#Eval("Name") %></span>
-                    </div>
-                </ItemTemplate>
-            </telerik:RadListView>
+
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <div <%#Eval("BackgroundPhoto") %> class="product product-x<%= CurrentColumnOption %>" onclick="ShowAddProductDialog('<%#Eval("Id") %>', '<%#Eval("Name") %>')">
+                            <span><%#Eval("Name") %></span>
+                        </div>
+                    </ItemTemplate>
+                </telerik:RadListView>
+            </div>
         </asp:Panel>
         <div style="display: none;">
             <asp:HiddenField runat="server" ID="txtProductId" />
@@ -73,10 +85,11 @@
         <div id="dialogAddProduct" class="dialogAddProduct">
             <div id="selectedProductName"></div>
             <div class="divAmount">
-                <div class="amount-label">
-                    <span class="label label-info">Số lượng</span>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">
+                        <asp:Literal runat="server" ID="lblOrderType" /></span>
+                    <asp:TextBox runat="server" Width="100%" CssClass="form-control amount" ID="txtAmount" />
                 </div>
-                <asp:TextBox runat="server" Width="100%" CssClass="form-control amount" ID="txtAmount" />
             </div>
             <div class="number-board">
                 <div class="number-column">
@@ -127,12 +140,14 @@
                     <button type="button" class="btn btn-default" onclick="CloseAddProductDialog();">
                         <span class="fa fa-times"></span>
                         Huỷ
+                   
                     </button>
                 </div>
                 <div>
                     <button type="button" class="btn btn-success" onclick="addProduct();">
                         <span class="fa fa-check"></span>
                         Thêm món
+                   
                     </button>
                 </div>
             </div>

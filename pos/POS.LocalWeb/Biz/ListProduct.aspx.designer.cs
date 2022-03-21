@@ -78,6 +78,15 @@ namespace POS.LocalWeb.Biz
         protected global::System.Web.UI.WebControls.Panel panelList;
 
         /// <summary>
+        /// panelMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelMessage;
+
+        /// <summary>
         /// gridProducts control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace POS.LocalWeb.Biz
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnChangeProductGroup;
+
+        /// <summary>
+        /// lblOrderType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal lblOrderType;
 
         /// <summary>
         /// txtAmount control.

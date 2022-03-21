@@ -41,5 +41,13 @@ namespace POS.LocalWeb.Dal
         {
             Lines = new List<ReportTableline>();
         }
+
+        public bool UnableToRefund(string productNo, double refundAmount)
+        {
+            double avaiableAmount = Lines.Where(i => i.ProductNo.Equals(productNo)).Sum(i => i.Amout);
+
+            return (avaiableAmount + refundAmount) < 0;
+        }
+
     }
 }

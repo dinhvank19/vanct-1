@@ -44,6 +44,10 @@
                                 <span class="fa fa-plus"></span>
                                 Món
                             </button>
+                            <button type="button" class="btn btn-danger" onclick="goProductsButRefund()">
+                                <span class="fa fa-minus"></span>
+                                Món
+                            </button>
                         </asp:Panel>
                     </td>
                 </tr>
@@ -157,6 +161,9 @@
         }
         function goProducts() {
             window.location = '<%=ResolveUrl("~/Biz/ListProduct.aspx?no=" + PosContext.RequestTableNo) %>';
+        }
+        function goProductsButRefund() {
+            window.location = '<%=ResolveUrl("~/Biz/ListProduct.aspx?refund=true&no=" + PosContext.RequestTableNo) %>';
         }
         function printOrder() {
             <%=ClientScript.GetPostBackClientHyperlink(btnPrintOrder, "") %>

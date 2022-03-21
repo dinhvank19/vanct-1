@@ -2,7 +2,6 @@
 using System.Web.SessionState;
 using POS.LocalWeb.Dal;
 using POS.Shared;
-using Telerik.Web.UI.PivotGrid.Core;
 
 namespace POS.LocalWeb.AppCode
 {
@@ -15,6 +14,8 @@ namespace POS.LocalWeb.AppCode
         public static string RequestTableNo => HttpContext.Current.Request["no"];
 
         public static bool RequestChangeTable => HttpContext.Current.Request["changeTable"] == "true";
+
+        public static bool IsRefund => HttpContext.Current.Request["refund"] == "true";
 
         public static ReportUser User => HttpContext.Current.User.Identity.Name.JsonTextTo<ReportUser>();
 

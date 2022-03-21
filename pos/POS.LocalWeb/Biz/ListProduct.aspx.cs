@@ -17,9 +17,11 @@ namespace POS.LocalWeb.Biz
         {
             CheckTableStatus();
             LoadColumnOption();
+            panelMessage.Visible = false;
             if (IsPostBack) return;
             LoadData();
             LoadGroupData();
+            lblOrderType.Text = PosContext.IsRefund ? "Số lượng trả" : "Số lượng";
         }
 
         private void LoadColumnOption()
@@ -46,7 +48,7 @@ namespace POS.LocalWeb.Biz
         private void OrderLinesCounter()
         {
             CurrentTable = _db.GetTable(PosContext.RequestTableNo);
-            if (CurrentTable.Total > 0)
+            if (CurrentTable.Lines.Count > 0)
             {
                 lblOrderLinesCounter.Text = CurrentTable.Lines.Count.ToString();
             }
@@ -58,8 +60,19 @@ namespace POS.LocalWeb.Biz
             if (txtAmount.Text.Length == 0 || !txtAmount.Text.IsDouble())
                 return;
 
+            CurrentTable = _db.GetTable(PosContext.RequestTableNo);
+            var amount = txtAmount.Text.ToDouble();
             var product = _db.GetProducts().Get(txtProductId.Value);
-            //var group = _db.GetProductGroups().Get(product.Group);
+            if (PosContext.IsRefund)
+            {
+                amount *= -1;
+                if (CurrentTable.UnableToRefund(product.Id, amount))
+                {
+                    panelMessage.Visible = true;
+                    return;
+                }
+            }
+
             var line = new ReportOrderline
             {
                 Dongia = product.Price,
@@ -72,7 +85,7 @@ namespace POS.LocalWeb.Biz
                 Manv = PosContext.User.Username.ToUpper(),
                 Soban = PosContext.RequestTableNo,
                 GhiChu = txtGhiChu.Text,
-                SoLuong = txtAmount.Text.ToDouble()
+                SoLuong = amount
             };
             _db.InsertOrderline(line, PosContext.RequestTableNo);
             _db.BusyTable(PosContext.RequestTableNo);
@@ -88,8 +101,8 @@ namespace POS.LocalWeb.Biz
 
         protected void CheckTableStatus()
         {
-            var table = _db.GetTable(PosContext.RequestTableNo);
-            if (table.IsPrinted)
+            CurrentTable = _db.GetTable(PosContext.RequestTableNo);
+            if (CurrentTable.IsPrinted)
             {
                 Response.Redirect("~/Biz/TableDetails.aspx?no=" + PosContext.RequestTableNo);
             }
@@ -97,8 +110,8 @@ namespace POS.LocalWeb.Biz
 
         protected void BtnBack(object sender, EventArgs e)
         {
-            var table = _db.GetTable(PosContext.RequestTableNo);
-            if (table.Lines.Count == 0)
+            CurrentTable = _db.GetTable(PosContext.RequestTableNo);
+            if (CurrentTable.Lines.Count == 0)
                 Response.Redirect("~/Biz/ListTable.aspx?no=" + PosContext.RequestTableNo);
             else
                 Response.Redirect("~/Biz/TableDetails.aspx?no=" + PosContext.RequestTableNo);
