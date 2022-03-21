@@ -77,7 +77,7 @@
                         </LayoutTemplate>
                         <ItemTemplate>
                             <tr>
-                                <td style="width: 20px; vertical-align: middle;">
+                                <td style="width: 20px; vertical-align: middle; padding-right: 0">
                                     <%
                                         if (PosContext.RequestChangeTable)
                                         {
