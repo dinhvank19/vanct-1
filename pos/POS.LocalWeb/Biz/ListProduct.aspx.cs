@@ -22,6 +22,7 @@ namespace POS.LocalWeb.Biz
             LoadData();
             LoadGroupData();
             lblOrderType.Text = PosContext.IsRefund ? "Số lượng trả" : "Số lượng";
+            txtAmount.Text = "1";
         }
 
         private void LoadColumnOption()
@@ -90,7 +91,7 @@ namespace POS.LocalWeb.Biz
             _db.InsertOrderline(line, PosContext.RequestTableNo);
             _db.BusyTable(PosContext.RequestTableNo);
             txtGhiChu.Text = string.Empty;
-            txtAmount.Text = "";
+            txtAmount.Text = "1";
             OrderLinesCounter();
         }
 

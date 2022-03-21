@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POS.Dal", "POS.Dal\POS.Dal.csproj", "{6B1029ED-2EAF-4CCA-80F6-AAC8764EBF49}"
 EndProject
@@ -52,5 +52,9 @@ Global
 		{6B1029ED-2EAF-4CCA-80F6-AAC8764EBF49} = {7CE2FF66-53C9-4C0F-8310-C55CBC10466C}
 		{F33D2FC6-0103-416A-8B09-047F2EAF2F28} = {3C1634F1-F5E1-44D8-8F4C-FDCAB5567CD4}
 		{7030C9BB-710C-48F2-8959-BBE8FC00B80A} = {E9147519-14D9-4C8C-9818-0598F854D492}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		LessCompiler = 7030c9bb-710c-48f2-8959-bbe8fc00b80a
+		SolutionGuid = {A18F9B09-F4E6-44FF-94CA-EF0659735DB0}
 	EndGlobalSection
 EndGlobal

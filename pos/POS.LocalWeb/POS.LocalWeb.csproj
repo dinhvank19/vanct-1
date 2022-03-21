@@ -128,6 +128,12 @@
     <Content Include="Content\css\bootstrap.min.js" />
     <Content Include="Content\css\checked16.png" />
     <Content Include="Content\css\print16.png" />
+    <Content Include="Content\css\site1.css">
+      <DependentUpon>site1.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\site1.min.css">
+      <DependentUpon>site1.css</DependentUpon>
+    </Content>
     <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Default.aspx" />
@@ -201,7 +207,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

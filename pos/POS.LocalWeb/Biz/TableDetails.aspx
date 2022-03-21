@@ -10,67 +10,55 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
     <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" />
     <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-        <div class="divHeader shadow">
-            <table>
-                <tr>
-                    <td>
-                        <button type="button" class="btn btn-danger" onclick="goBack();">
-                            <span class="fa fa-chevron-left"></span>
-                        </button>
-                    </td>
-                    <td>
-                        <asp:Panel runat="server" ID="changeTablePanel">
-                            <button type="button" class="btn btn-info" onclick="selectingTableForChange()">
-                                <span class="fa fa-exchange"></span>
-                                Chuyển bàn
-                           
-                            </button>
-                            <button type="button" class="btn btn-danger" onclick="cancelChangeTable()">
-                                <span class="fa fa-ban"></span>
-                                Huỷ
-                           
-                            </button>
-                        </asp:Panel>
-                        <asp:Panel runat="server" ID="buttonsPanel">
-                            <button type="button" class="btn btn-info" onclick="changeTable()">
-                                <span class="fa fa-exchange"></span>
-                                C.bàn
-                           
-                            </button>
-                            <button type="button" class="btn btn-warning" onclick="printTemporaryOrder()">
-                                <span class="fa fa-print"></span>Bill
-                           
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="printOrder();">
-                                <span class="fa fa-print"></span>
-                                Bếp
-                           
-                            </button>
-                            <button type="button" class="btn btn-success" onclick="goProducts()">
-                                <span class="fa fa-plus"></span>
-                                Món
-                           
-                            </button>
-                            <%
-                                if (new AceDbContext().IsRefundable())
-                                {
-                            %>
-                            <button type="button" class="btn btn-danger" onclick="goProductsButRefund()">
-                                <span class="fa fa-minus"></span>
-                                Món
-                            </button>
-                            <%
-                                }
-                            %>
-                        </asp:Panel>
-                    </td>
-                </tr>
-            </table>
+        <div class="divHeader shadow d-flex ps-2">
+            <asp:Panel runat="server" ID="changeTablePanel">
+                <button type="button" class="btn btn-info" onclick="selectingTableForChange()">
+                    <span class="fa fa-exchange"></span>
+                    <span class="ms-1">Chuyển bàn</span>
+                </button>
+                <button type="button" class="btn btn-danger" onclick="cancelChangeTable()">
+                    <span class="fa fa-ban"></span>
+                    <span class="ms-1">Huỷ</span>
+                </button>
+            </asp:Panel>
+            <asp:Panel runat="server" ID="buttonsPanel">
+                <button type="button" class="btn btn-info" onclick="changeTable()">
+                    <span class="fa fa-exchange"></span>
+                    <span class="ms-1">C.bàn</span>
+                </button>
+                <button type="button" class="btn btn-warning" onclick="printTemporaryOrder()">
+                    <span class="fa fa-print"></span>
+                    <span class="ms-1">Bill</span>
+                </button>
+                <button type="button" class="btn btn-primary" onclick="printOrder();">
+                    <span class="fa fa-print"></span>
+                    <span class="ms-1">Bếp</span>
+                </button>
+                <button type="button" class="btn btn-success" onclick="goProducts()">
+                    <span class="fa fa-plus"></span>
+                    <span class="ms-1">Món</span>
+                </button>
+                <%
+                    if (new AceDbContext().IsRefundable())
+                    {
+                %>
+                <button type="button" class="btn btn-danger" onclick="goProductsButRefund()">
+                    <span class="fa fa-minus"></span>
+                    <span class="ms-1">Món</span>
+                </button>
+                <%
+                    }
+                %>
+            </asp:Panel>
         </div>
         <div class="divDetails">
             <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <strong>Bàn
+                <div class="panel-heading d-flex p-3">
+                    <button type="button" class="btn btn-danger" onclick="goBack();">
+                        <span class="fa fa-chevron-left"></span>
+                    </button>
+                    <strong class="ms-2">
+                        Bàn
                         <asp:Literal runat="server" ID="lblTableNo" />
                         - [<asp:Literal runat="server" ID="lblMoment" />]
                        
