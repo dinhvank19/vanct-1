@@ -10,45 +10,49 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
     <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" />
     <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
-        <div class="divHeader shadow d-flex ps-2">
+        <div class="divHeader shadow d-flex p-2">
             <asp:Panel runat="server" ID="changeTablePanel">
-                <button type="button" class="btn btn-info" onclick="selectingTableForChange()">
-                    <span class="fa fa-exchange"></span>
-                    <span class="ms-1">Chuyển bàn</span>
-                </button>
-                <button type="button" class="btn btn-danger" onclick="cancelChangeTable()">
-                    <span class="fa fa-ban"></span>
-                    <span class="ms-1">Huỷ</span>
-                </button>
+                <div class="d-flex">
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-info" onclick="selectingTableForChange()">
+                        <span class="fa fa-exchange"></span>
+                        <span class="ms-1">Chuyển bàn</span>
+                    </button>
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-danger" onclick="cancelChangeTable()">
+                        <span class="fa fa-ban"></span>
+                        <span class="ms-1">Huỷ</span>
+                    </button>
+                </div>
             </asp:Panel>
             <asp:Panel runat="server" ID="buttonsPanel">
-                <button type="button" class="btn btn-info" onclick="changeTable()">
-                    <span class="fa fa-exchange"></span>
-                    <span class="ms-1">C.bàn</span>
-                </button>
-                <button type="button" class="btn btn-warning" onclick="printTemporaryOrder()">
-                    <span class="fa fa-print"></span>
-                    <span class="ms-1">Bill</span>
-                </button>
-                <button type="button" class="btn btn-primary" onclick="printOrder();">
-                    <span class="fa fa-print"></span>
-                    <span class="ms-1">Bếp</span>
-                </button>
-                <button type="button" class="btn btn-success" onclick="goProducts()">
-                    <span class="fa fa-plus"></span>
-                    <span class="ms-1">Món</span>
-                </button>
-                <%
-                    if (new AceDbContext().IsRefundable())
-                    {
-                %>
-                <button type="button" class="btn btn-danger" onclick="goProductsButRefund()">
-                    <span class="fa fa-minus"></span>
-                    <span class="ms-1">Món</span>
-                </button>
-                <%
-                    }
-                %>
+                <div class="d-flex">
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-info" onclick="changeTable()">
+                        <span class="fa fa-exchange"></span>
+                        <span class="ms-1">C.bàn</span>
+                    </button>
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-warning" onclick="printTemporaryOrder()">
+                        <span class="fa fa-print"></span>
+                        <span class="ms-1">Bill</span>
+                    </button>
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-primary" onclick="printOrder();">
+                        <span class="fa fa-print"></span>
+                        <span class="ms-1">Bếp</span>
+                    </button>
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-success" onclick="goProducts()">
+                        <span class="fa fa-plus"></span>
+                        <span class="ms-1">Món</span>
+                    </button>
+                    <%
+                        if (new AceDbContext().IsRefundable())
+                        {
+                    %>
+                    <button type="button" class="btn btn-sm me-1 p-2 btn-danger" onclick="goProductsButRefund()">
+                        <span class="fa fa-minus"></span>
+                        <span class="ms-1">Món</span>
+                    </button>
+                    <%
+                        }
+                    %>
+                </div>
             </asp:Panel>
         </div>
         <div class="divDetails">
@@ -57,16 +61,14 @@
                     <button type="button" class="btn btn-danger" onclick="goBack();">
                         <span class="fa fa-chevron-left"></span>
                     </button>
-                    <strong class="ms-2">
-                        Bàn
-                        <asp:Literal runat="server" ID="lblTableNo" />
-                        - [<asp:Literal runat="server" ID="lblMoment" />]
-                       
-                        <br />
-                        Check In:
-                       
-                        <asp:Literal runat="server" ID="lblCheckIn" />
-                    </strong>
+                    <div class="ms-2">
+                        <div class="fw-bolder">
+                            Bàn <asp:Literal runat="server" ID="lblTableNo" /> - [<asp:Literal runat="server" ID="lblMoment" />]
+                        </div>
+                        <div class="fw-bolder">
+                            Check In: <asp:Literal runat="server" ID="lblCheckIn" />
+                        </div>
+                    </div>
                 </div>
                 <table class="table table-striped">
                     <telerik:RadListView ID="gridLines" runat="server" ItemPlaceholderID="tableContainer">
@@ -86,7 +88,7 @@
                                         else
                                         {
                                     %>
-                                    <button type="button" class="btn btn-danger" onclick="deleteProduct('<%#Eval("Id") %>');">
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="deleteProduct('<%#Eval("Id") %>');">
                                         <span class="fa fa-times"></span>
                                     </button>
                                     <%

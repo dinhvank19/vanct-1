@@ -205,6 +205,9 @@ a {
 .d-flex {
   display: flex !important;
 }
+.me-1 {
+  margin-right: 3px !important;
+}
 .ms-1 {
   margin-left: 3px !important;
 }
@@ -214,8 +217,14 @@ a {
 .ps-2 {
   padding-left: 6px !important;
 }
+.p-2 {
+  padding: 5px !important;
+}
 .p-3 {
   padding: 10px;
+}
+.fw-bolder {
+  font-weight: bolder !important;
 }
 .divTables {
   padding-top: 50px;
