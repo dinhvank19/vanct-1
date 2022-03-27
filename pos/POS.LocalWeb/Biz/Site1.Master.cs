@@ -9,7 +9,7 @@ namespace POS.LocalWeb.Biz
         {
             if (PosContext.User.ChucVu.Equals("BEP"))
             {
-                Response.Redirect("~/Bep/ListBan.aspx");
+                Response.Redirect("~/Bep/Ban.aspx");
             }
         }
     }

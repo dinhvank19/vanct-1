@@ -37,7 +37,7 @@ namespace POS.LocalWeb
 
                 if (user.ChucVu.Equals("BEP"))
                 {
-                    Response.Redirect("~/Bep/ListBan.aspx");
+                    Response.Redirect("~/Bep/Ban.aspx");
                 }
                 else
                 {

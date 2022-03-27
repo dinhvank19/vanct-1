@@ -36,5 +36,6 @@ namespace POS.LocalWeb.Dal
 
         public string Css => DaBao ? "processed" : "";
         public string PrintCss => IsPrinted ? "printed" : "deleting";
+        public string BepCss => Amout <= 0 ? "amount-error" : "";
     }
 }

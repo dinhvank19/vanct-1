@@ -10,7 +10,7 @@
         <asp:Button runat="server" ID="btnDaChuyen" OnClick="OnBtnDaChuyen" />
         <asp:HiddenField runat="server" ID="txtLineId" />
     </div>
-    <table class="table table-striped">
+    <table class="table table-striped fw-bolder">
         <telerik:RadListView ID="gridLines" runat="server" ItemPlaceholderID="tableContainer">
             <LayoutTemplate>
                 <thead>
@@ -35,12 +35,11 @@
                 <tr>
                     <td><%#Eval("TableNo") %></td>
                     <td><%#Eval("ProductName") %></td>
-                    <td><%#Eval("Amout") %></td>
+                    <td class="<%#Eval("BepCss") %>"><%#Eval("Amout") %></td>
                     <td><%#Eval("GhiChu") %></td>
                     <td><%#Eval("Moment") %></td>
                     <td><%#Eval("MomentDoc") %></td>
                     <td class="dadoc-<%#Eval("DaDoc") %>">
-                        <%#Eval("DaDoc") %>
                         <button class="btn btn-lg btn-success pe-none btnTrue" type="button">
                             <i class="fa fa-check-square" aria-hidden="true"></i>
                             Đang làm
@@ -51,8 +50,8 @@
                             Bắt đầu làm
                         </button>
                     </td>
-                    <td>
-                        <button class="btn btn-lg btn-primary" type="button" onclick="markAsDaChuyen('<%#Eval("Id") %>')">
+                    <td class="dadoc-<%#Eval("DaDoc") %>">
+                        <button class="btn btn-lg btn-primary btnChuyen" type="button" onclick="markAsDaChuyen('<%#Eval("Id") %>')">
                             <i class="fa fa-square" aria-hidden="true"></i>
                             Chuyển
                         </button>

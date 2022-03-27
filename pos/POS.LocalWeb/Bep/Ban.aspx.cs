@@ -51,7 +51,7 @@ namespace POS.LocalWeb.Bep
         {
             var lineId = txtLineId.Value;
             _db.UpdateDaDoc(lineId);
-            LoadData();
+            Response.Redirect("~/Bep/Ban.aspx");
         }
 
         protected void OnBtnDaChuyen(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace POS.LocalWeb.Bep
             var lineId = txtLineId.Value;
             _db.UpdateDaChuyen(lineId);
             PrintChuyen();
-            LoadData();
+            Response.Redirect("~/Bep/Ban.aspx");
         }
 
         protected void PrintChuyen()
@@ -69,7 +69,11 @@ namespace POS.LocalWeb.Bep
             var content = $"{line.TableNo}{Environment.NewLine}" +
                 $"{line.ProductName} - {line.Amout}{Environment.NewLine}" +
                 $"Đã chuyển lúc {line.GioChuyen.GetValueOrDefault().ToString("HH:mm")}";
-            // PosContext.Print(content, "MAY_IN_NAO_DAY");
+            var group = _db.GetProductExGroups().SingleOrDefault(i => i.Name == line.ProductGroup);
+            if (group != null)
+            {
+                PosContext.Print(content, group.Printer);
+            }
         }
     }
 }
