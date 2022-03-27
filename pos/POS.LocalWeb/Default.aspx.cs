@@ -35,13 +35,13 @@ namespace POS.LocalWeb
                 };
                 Response.Cookies.Add(cookie);
 
-                if (user.ChucVu.Equals("TN"))
+                if (user.ChucVu.Equals("BEP"))
                 {
-                    Response.Redirect("~/Biz/ListTable.aspx");
+                    Response.Redirect("~/Bep/ListBan.aspx");
                 }
                 else
                 {
-                    Response.Redirect("~/Biz/Bep.aspx");
+                    Response.Redirect("~/Biz/ListTable.aspx");
                 }
             }
             catch (Exception exception)

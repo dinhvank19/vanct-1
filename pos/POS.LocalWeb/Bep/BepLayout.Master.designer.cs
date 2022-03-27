@@ -7,12 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace POS.LocalWeb.Biz
+namespace POS.LocalWeb.Bep
 {
 
 
-    public partial class Bep
+    public partial class BepLayout
     {
+
+        /// <summary>
+        /// head control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
 
         /// <summary>
         /// form1 control.
@@ -31,5 +40,14 @@ namespace POS.LocalWeb.Biz
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadScriptManager RadScriptManager1;
+
+        /// <summary>
+        /// ContentPlaceHolder1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
     }
 }

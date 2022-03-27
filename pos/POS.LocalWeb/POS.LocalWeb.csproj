@@ -62,12 +62,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\PosContext.cs" />
-    <Compile Include="Biz\Bep.aspx.cs">
-      <DependentUpon>Bep.aspx</DependentUpon>
+    <Compile Include="Bep\Ban.aspx.cs">
+      <DependentUpon>Ban.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Biz\Bep.aspx.designer.cs">
-      <DependentUpon>Bep.aspx</DependentUpon>
+    <Compile Include="Bep\Ban.aspx.designer.cs">
+      <DependentUpon>Ban.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bep\BepLayout.Master.cs">
+      <DependentUpon>BepLayout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bep\BepLayout.Master.designer.cs">
+      <DependentUpon>BepLayout.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Bep\ListBan.aspx.cs">
+      <DependentUpon>ListBan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bep\ListBan.aspx.designer.cs">
+      <DependentUpon>ListBan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz\UserControls\ModalOptions.ascx.cs">
       <DependentUpon>ModalOptions.ascx</DependentUpon>
@@ -130,7 +144,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Biz\Bep.aspx" />
+    <Content Include="Bep\Ban.aspx" />
+    <Content Include="Bep\ListBan.aspx" />
     <Content Include="Biz\UserControls\ModalOptions.ascx" />
     <Content Include="Content\bootstrap5\bootstrap.min.css" />
     <Content Include="Content\bootstrap5\bootstrap.min.js" />
@@ -158,6 +173,7 @@
     <Content Include="Biz\Site1.Master" />
     <Content Include="Content\css\site1.less" />
     <Content Include="Biz\Web.config" />
+    <Content Include="Bep\BepLayout.Master" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
