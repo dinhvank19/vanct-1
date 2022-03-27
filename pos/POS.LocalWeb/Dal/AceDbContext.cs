@@ -178,6 +178,26 @@ namespace POS.LocalWeb.Dal
             }
         }
 
+        public string BepTenPhieuChuyen()
+        {
+            using (_connection = new OleDbConnection(_connectionString))
+            {
+                _connection.Open();
+                using (var command = _connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    var tenPhieuChuyen = "PHIẾU PHỤC VỤ";
+                    command.CommandText = "select TEN_PHIEU_CHUYEN from [TUY CHON];";
+                    using (var dataReader = command.ExecuteReader())
+                        if (dataReader.Read())
+                            tenPhieuChuyen = dataReader["TEN_PHIEU_CHUYEN"] as string;
+
+                    return tenPhieuChuyen;
+                }
+            }
+        }
+
+
         /// <summary>
         ///     Gets the table.
         /// </summary>
