@@ -23,24 +23,13 @@ namespace POS.LocalWeb.Bep
         protected void LoadData()
         {
             var tables = _db.GetTables().Where(i => i.IsBusy);
-            if (!tables.Any())
-            {
-                return;
-            }
+            if (!tables.Any()) return;
 
-            List<ReportTableline> allLines = null;
+            List<ReportTableline> allLines = new List<ReportTableline>();
             foreach (var table in tables)
             {
-                var lines = table.Lines.Where(i => !i.DaChuyen).ToList();
-
-                if (allLines == null)
-                {
-                    allLines = lines;
-                }
-                else
-                {
-                    allLines = allLines.Concat(lines).ToList();
-                }
+                var lines = table.Lines.Where(i => !i.DaChuyen && i.ProductGroup.Equals("AN")).ToList();
+                allLines = allLines.Concat(lines).ToList();
             }
 
             gridLines.DataSource = allLines.OrderBy(i => i.InDate).ToList();
@@ -51,7 +40,7 @@ namespace POS.LocalWeb.Bep
         {
             var lineId = txtLineId.Value;
             _db.UpdateDaDoc(lineId);
-            Response.Redirect("~/Bep/Ban.aspx");
+            LoadData();
         }
 
         protected void OnBtnDaChuyen(object sender, EventArgs e)
@@ -66,14 +55,13 @@ namespace POS.LocalWeb.Bep
         {
             var lineId = txtLineId.Value;
             var line = _db.GetOrderLine(lineId);
-            var content = $"{line.TableNo}{Environment.NewLine}" +
+            var content = $"**** {_db.BepTenPhieuChuyen()} *****{Environment.NewLine}{Environment.NewLine}" +
+                $"Số bàn: {line.TableNo}{Environment.NewLine}" +
                 $"{line.ProductName} - {line.Amout}{Environment.NewLine}" +
                 $"Đã chuyển lúc {line.GioChuyen.GetValueOrDefault().ToString("HH:mm")}";
             var group = _db.GetProductExGroups().SingleOrDefault(i => i.Name == line.ProductGroup);
             if (group != null)
-            {
                 PosContext.Print(content, group.Printer);
-            }
         }
     }
 }
