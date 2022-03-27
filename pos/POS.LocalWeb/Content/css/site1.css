@@ -1,4 +1,4 @@
-﻿body {
+﻿body.biz {
   margin: 0;
   padding: 0;
   font-family: Verdana;
@@ -6,21 +6,21 @@
   cursor: default;
   position: relative;
 }
-a {
+body.biz a {
   text-decoration: none;
 }
-.table-padding5 tr > td {
+body.biz .table-padding5 tr > td {
   padding: 5px;
 }
-.shadow {
+body.biz .shadow {
   -moz-box-shadow: 0 1px 13px #ccc;
   -webkit-box-shadow: 0 1px 13px #ccc;
   box-shadow: 0 1px 13px #ccc;
 }
-.clr {
+body.biz .clr {
   clear: both;
 }
-.divHeader {
+body.biz .divHeader {
   position: fixed;
   right: 0;
   left: 0;
@@ -32,71 +32,71 @@ a {
   font-size: 14px;
   padding-top: 6px;
 }
-.divHeader .form-control {
+body.biz .divHeader .form-control {
   font-size: 12px;
 }
-.divHeader table {
+body.biz .divHeader table {
   width: 100%;
 }
-.divHeader table tr > td:last-child {
+body.biz .divHeader table tr > td:last-child {
   text-align: right;
   padding-right: 5px;
 }
-.divHeader table tr > td:first-child {
+body.biz .divHeader table tr > td:first-child {
   padding-left: 5px;
 }
-.divHeader .form-group {
+body.biz .divHeader .form-group {
   float: left;
   margin-right: 5px;
 }
-.divHeader .label {
+body.biz .divHeader .label {
   font-size: 14px;
 }
-.right-buttons {
+body.biz .right-buttons {
   position: fixed;
   top: 5px;
   right: 5px;
 }
-.divDetails {
+body.biz .divDetails {
   padding-top: 45px;
   font-size: 13px;
 }
-.divDetails table .total {
+body.biz .divDetails table .total {
   font-size: 20px;
   color: red;
   font-weight: bold;
 }
-.divDetails table .name {
+body.biz .divDetails table .name {
   font-weight: bold;
 }
-.divDetails table .processed {
+body.biz .divDetails table .processed {
   background: url(checked16.png) top 5px right 5px no-repeat;
 }
-.divDetails table .printed {
+body.biz .divDetails table .printed {
   background: url(print16.png) top 5px right 5px no-repeat;
 }
-.divDetails .panel {
+body.biz .divDetails .panel {
   margin: 0;
   border-radius: 0;
   border: 0;
 }
-.divBillPrintContent {
+body.biz .divBillPrintContent {
   font-family: Arial;
   width: 220px;
   background: #fff;
   color: #000;
 }
-.divBillPrintContent .print-header {
+body.biz .divBillPrintContent .print-header {
   text-align: center;
 }
-.full-width {
+body.biz .full-width {
   width: 100%;
 }
-.divProducts {
+body.biz .divProducts {
   padding-top: 90px;
   display: block;
 }
-.divProducts div.product {
+body.biz .divProducts div.product {
   float: left;
   cursor: pointer;
   display: flex;
@@ -106,38 +106,38 @@ a {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.divProducts div.product span {
+body.biz .divProducts div.product span {
   background-color: #46b8da;
   color: #fff;
   align-self: flex-end;
   border-radius: 4px;
   margin: 4px;
 }
-.divProducts div.product-x2 {
+body.biz .divProducts div.product-x2 {
   width: 50%;
   height: 100px;
   font-size: 18px;
 }
-.divProducts div.product-x2 span {
+body.biz .divProducts div.product-x2 span {
   line-height: 19px;
 }
-.divProducts div.product-x3 {
+body.biz .divProducts div.product-x3 {
   width: 33.33%;
   height: 90px;
   font-size: 16px;
 }
-.divProducts div.product-x3 span {
+body.biz .divProducts div.product-x3 span {
   line-height: 17px;
 }
-.divProducts div.product-x4 {
+body.biz .divProducts div.product-x4 {
   width: 25%;
   height: 80px;
   font-size: 15px;
 }
-.divProducts div.product-x4 span {
+body.biz .divProducts div.product-x4 span {
   line-height: 16px;
 }
-.divProductGroups {
+body.biz .divProductGroups {
   position: fixed;
   left: 0;
   top: 40px;
@@ -147,125 +147,125 @@ a {
   overflow: auto;
   z-index: 1000;
 }
-.divProductGroups .btn-product-group {
+body.biz .divProductGroups .btn-product-group {
   margin: 5px 0 0 5px;
   font-weight: bold;
 }
-.divProductGroups .btn-product-group:last-child {
+body.biz .divProductGroups .btn-product-group:last-child {
   margin: 5px 5px 0 5px;
 }
-.dialogAddProduct {
+body.biz .dialogAddProduct {
   padding-top: 90px;
   display: none;
 }
-.dialogAddProduct #selectedProductName {
+body.biz .dialogAddProduct #selectedProductName {
   font-size: 14px;
   padding: 8px;
 }
-.dialogAddProduct .number-board .btn {
+body.biz .dialogAddProduct .number-board .btn {
   width: 100%;
   font-weight: bold;
   border-radius: 0;
   border-top: 0;
   border-right: 0;
 }
-.dialogAddProduct .number-board .number-column {
+body.biz .dialogAddProduct .number-board .number-column {
   width: 25%;
   padding: 0;
   margin: 0;
   float: left;
 }
-.dialogAddProduct .form-control {
+body.biz .dialogAddProduct .form-control {
   border-radius: 0;
 }
-.dialogAddProduct .note {
+body.biz .dialogAddProduct .note {
   border-top: 0;
 }
-.dialogAddProduct .divButtons div {
+body.biz .dialogAddProduct .divButtons div {
   float: left;
   width: 50%;
   padding: 4px;
 }
-.dialogAddProduct .divButtons div:last-child {
+body.biz .dialogAddProduct .divButtons div:last-child {
   text-align: right;
 }
-.dialogAddProduct .divAmount {
+body.biz .dialogAddProduct .divAmount {
   position: relative;
 }
-.dialogAddProduct .divAmount .amount {
+body.biz .dialogAddProduct .divAmount .amount {
   color: red;
   font-weight: bold;
 }
-.line-counter {
+body.biz .line-counter {
   color: #ffffff !important;
   background-color: red !important;
   margin-right: 3px;
   font-weight: bolder;
 }
-.d-flex {
+body.biz .d-flex {
   display: flex !important;
 }
-.me-1 {
+body.biz .me-1 {
   margin-right: 3px !important;
 }
-.ms-1 {
+body.biz .ms-1 {
   margin-left: 3px !important;
 }
-.ms-2 {
+body.biz .ms-2 {
   margin-left: 6px !important;
 }
-.ps-2 {
+body.biz .ps-2 {
   padding-left: 6px !important;
 }
-.p-2 {
+body.biz .p-2 {
   padding: 5px !important;
 }
-.p-3 {
+body.biz .p-3 {
   padding: 10px;
 }
-.fw-bolder {
+body.biz .fw-bolder {
   font-weight: bolder !important;
 }
-.divTables {
+body.biz .divTables {
   padding-top: 50px;
 }
-.divTables .busy {
+body.biz .divTables .busy {
   background-color: red;
   color: #fff;
 }
-.divTables .processed {
+body.biz .divTables .processed {
   background-color: #00f;
   color: #fff;
 }
-.divTables .printed {
+body.biz .divTables .printed {
   background-color: darkgreen;
   color: #fff;
 }
-.divTables div.table-x2 {
+body.biz .divTables div.table-x2 {
   width: 50%;
   height: 100px;
   font-size: 20px;
 }
-.divTables div.table-x2 .moment {
+body.biz .divTables div.table-x2 .moment {
   font-size: 18px;
 }
-.divTables div.table-x3 {
+body.biz .divTables div.table-x3 {
   width: 33.33%;
   height: 90px;
   font-size: 18px;
 }
-.divTables div.table-x3 .moment {
+body.biz .divTables div.table-x3 .moment {
   font-size: 16px;
 }
-.divTables div.table-x4 {
+body.biz .divTables div.table-x4 {
   width: 25%;
   height: 80px;
   font-size: 16px;
 }
-.divTables div.table-x4 .moment {
+body.biz .divTables div.table-x4 .moment {
   font-size: 14px;
 }
-.divTables div.table {
+body.biz .divTables div.table {
   float: left;
   position: relative;
   cursor: pointer;
@@ -275,7 +275,7 @@ a {
   padding: 4px;
   margin: 0;
 }
-.divTables div.table .total {
+body.biz .divTables div.table .total {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -284,10 +284,10 @@ a {
   width: 100%;
   padding-right: 6px;
 }
-.divTables div.table .name {
+body.biz .divTables div.table .name {
   font-weight: bold;
 }
-#modalOptions {
+body.biz #modalOptions {
   display: none;
   position: fixed;
   z-index: 99999;
@@ -298,16 +298,22 @@ a {
   height: 100%;
   padding: 10px;
 }
-.order-line {
+body.biz .order-line {
   zoom: 2;
   color: #337ab7;
 }
-#changeTableModal .modal-dialog {
+body.biz #changeTableModal .modal-dialog {
   margin-top: 100px;
 }
-#changeTableModal .modal-dialog select.form-control {
+body.biz #changeTableModal .modal-dialog select.form-control {
   margin: 20px 0;
 }
-#changeTableModal .modal-dialog .btn {
+body.biz #changeTableModal .modal-dialog .btn {
   width: 150px;
+}
+body.biz .dadoc-True {
+  background-color: #dff7ef;
+}
+body.biz .dachuyen-True {
+  background-color: #f2f5f5;
 }

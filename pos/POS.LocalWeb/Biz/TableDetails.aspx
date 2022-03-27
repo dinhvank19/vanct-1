@@ -70,13 +70,13 @@
                         </div>
                     </div>
                 </div>
-                <table class="table table-striped">
+                <table class="table">
                     <telerik:RadListView ID="gridLines" runat="server" ItemPlaceholderID="tableContainer">
                         <LayoutTemplate>
                             <asp:PlaceHolder ID="tableContainer" runat="server"></asp:PlaceHolder>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <tr>
+                            <tr class="dadoc-<%#Eval("DaDoc") %> dachuyen-<%#Eval("DaChuyen") %>">
                                 <td style="width: 20px; vertical-align: middle; padding-right: 0">
                                     <%
                                         if (PosContext.RequestChangeTable)
