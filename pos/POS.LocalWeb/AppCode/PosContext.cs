@@ -2,6 +2,9 @@
 using System.Web.SessionState;
 using POS.LocalWeb.Dal;
 using POS.Shared;
+using System.Drawing;
+using System.Drawing.Printing;
+using System;
 
 namespace POS.LocalWeb.AppCode
 {
@@ -25,6 +28,45 @@ namespace POS.LocalWeb.AppCode
         {
             set { Session["IconOrList"] = value; }
             get { return Session["IconOrList"] as string; }
+        }
+
+        public static void Print(string stringToPrint, string printerName)
+        {
+            var font = new Font("Times New Roman", 13.0f);
+            using (var pd = new PrintDocument())
+            {
+                var with = pd.DefaultPageSettings.PrintableArea.Width;
+                var height = pd.DefaultPageSettings.PrintableArea.Height;
+                pd.PrinterSettings.PrinterName = printerName;
+                pd.PrintPage += (sender, e) =>
+                {
+                    //using (var img = Image.FromFile(filePath))
+                    //    e.Graphics.DrawImage(img, new Point(10, 10));
+
+                    int charactersOnPage;
+                    int linesPerPage;
+
+                    // Sets the value of charactersOnPage to the number of characters 
+                    // of stringToPrint that will fit within the bounds of the page.
+                    e.Graphics.MeasureString(stringToPrint, font,
+                        e.MarginBounds.Size, StringFormat.GenericTypographic,
+                        out charactersOnPage, out linesPerPage);
+
+                    e.Graphics.DrawString(stringToPrint,
+                        font,
+                        new SolidBrush(Color.Black),
+                        new RectangleF(0, 0, with, height));
+                };
+
+                try
+                {
+                    pd.Print();
+                }
+                catch (Exception)
+                {
+
+                }
+            }
         }
     }
 }

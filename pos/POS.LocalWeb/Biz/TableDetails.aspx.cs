@@ -74,7 +74,7 @@ namespace POS.LocalWeb.Biz
 
             // try to print
             if (!string.IsNullOrEmpty(mayin.Printer))
-                Printing(content, mayin.Printer);
+                PosContext.Print(content, mayin.Printer);
 
             Response.Redirect("~/Biz/ListTable.aspx");
         }
@@ -113,7 +113,7 @@ namespace POS.LocalWeb.Biz
                 // try to print
                 if (!string.IsNullOrEmpty(g.Printer))
                 {
-                    Printing(content, g.Printer);
+                    PosContext.Print(content, g.Printer);
                     _db.UpdateOrderPrinted(glines.Select(i => string.Format("'{0}'", i.Id)).ToList());
                 }
             }
@@ -139,45 +139,6 @@ namespace POS.LocalWeb.Biz
                 {
                     changeTablePanel.Visible = false;
                     buttonsPanel.Visible = true;
-                }
-            }
-        }
-
-        private void Printing(string stringToPrint, string printerName)
-        {
-            var font = new Font("Times New Roman", 13.0f);
-            using (var pd = new PrintDocument())
-            {
-                var with = pd.DefaultPageSettings.PrintableArea.Width;
-                var height = pd.DefaultPageSettings.PrintableArea.Height;
-                pd.PrinterSettings.PrinterName = printerName;
-                pd.PrintPage += (sender, e) =>
-                {
-                    //using (var img = Image.FromFile(filePath))
-                    //    e.Graphics.DrawImage(img, new Point(10, 10));
-
-                    int charactersOnPage;
-                    int linesPerPage;
-
-                    // Sets the value of charactersOnPage to the number of characters 
-                    // of stringToPrint that will fit within the bounds of the page.
-                    e.Graphics.MeasureString(stringToPrint, font,
-                        e.MarginBounds.Size, StringFormat.GenericTypographic,
-                        out charactersOnPage, out linesPerPage);
-
-                    e.Graphics.DrawString(stringToPrint,
-                        font,
-                        new SolidBrush(Color.Black),
-                        new RectangleF(0, 0, with, height));
-                };
-
-                try
-                {
-                    pd.Print();
-                }
-                catch (Exception)
-                {
-                    
                 }
             }
         }

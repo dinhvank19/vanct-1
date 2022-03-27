@@ -16,6 +16,7 @@ namespace POS.LocalWeb.Dal
         public double Total => Amout*Price;
         public string Om { set; get; }
         public DateTime? InDate { get; set; }
+        public DateTime? GioDoc { get; set; }
         public DateTime? GioChuyen { get; set; }
         public bool DaBao { set; get; }
         public bool DaDoc { set; get; }
@@ -26,6 +27,9 @@ namespace POS.LocalWeb.Dal
         public string Moment => InDate == null
             ? string.Empty
             : InDate.Value.TimeEscalationToString();
+        public string MomentDoc => GioDoc == null
+            ? string.Empty
+            : GioDoc.Value.TimeEscalationToString();
         public string MomentChuyen => GioChuyen == null
             ? string.Empty
             : GioChuyen.Value.TimeEscalationToString();

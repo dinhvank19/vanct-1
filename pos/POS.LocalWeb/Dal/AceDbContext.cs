@@ -89,7 +89,9 @@ namespace POS.LocalWeb.Dal
                     #region push lines to tables
 
                     command.CommandText =
-                        "select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO from [BAN] where SOBAN is not null;";
+                        "select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU," +
+                        " DADOC, GIODOC, DACHUYEN, GIOCHUYEN, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO " +
+                        "from [BAN] where SOBAN is not null;";
                     using (var dataReader = command.ExecuteReader())
                     {
                         if (dataReader == null) return tables;
@@ -110,6 +112,14 @@ namespace POS.LocalWeb.Dal
                                 Om = dataReader["DVT"] as string,
                                 ProductGroup = dataReader["NHOM"] as string,
                                 DaBao = (bool)dataReader["DABAO"],
+                                DaDoc = (bool)dataReader["DADOC"],
+                                GioDoc = dataReader["GIODOC"] != DBNull.Value
+                                    ? (DateTime)dataReader["GIODOC"]
+                                    : (DateTime?)null,
+                                DaChuyen = (bool)dataReader["DACHUYEN"],
+                                GioChuyen = dataReader["GIOCHUYEN"] != DBNull.Value
+                                    ? (DateTime)dataReader["GIOCHUYEN"]
+                                    : (DateTime?)null,
                                 InDate = dataReader["NGAYGIO"] != DBNull.Value
                                     ? (DateTime)dataReader["NGAYGIO"]
                                     : (DateTime?)null,
@@ -224,7 +234,9 @@ namespace POS.LocalWeb.Dal
                         return null;
 
                     command.CommandText =
-                        "select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU, DADOC, DACHUYEN, GIOCHUYEN, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO from [BAN] where SOBAN is not null and SOBAN = '" +
+                        "select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU," +
+                        " DADOC, GIODOC, DACHUYEN, GIOCHUYEN, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO " +
+                        "from [BAN] where SOBAN is not null and SOBAN = '" +
                         tableno + "';";
                     using (var dataReader = command.ExecuteReader())
                     {
@@ -244,6 +256,9 @@ namespace POS.LocalWeb.Dal
                                 ProductGroup = dataReader["NHOM"] as string,
                                 DaBao = (bool)dataReader["DABAO"],
                                 DaDoc = (bool)dataReader["DADOC"],
+                                GioDoc = dataReader["GIODOC"] != DBNull.Value
+                                    ? (DateTime)dataReader["GIODOC"]
+                                    : (DateTime?)null,
                                 DaChuyen = (bool)dataReader["DACHUYEN"],
                                 GioChuyen = dataReader["GIOCHUYEN"] != DBNull.Value
                                     ? (DateTime)dataReader["GIOCHUYEN"]
@@ -289,6 +304,34 @@ namespace POS.LocalWeb.Dal
             catch (Exception ex)
             {
                 LoggingFactory.GetLogger().Debug(ex.ToString());
+            }
+        }
+
+        public void UpdateDaChuyen(string lineId)
+        {
+            using (_connection = new OleDbConnection(_connectionString))
+            {
+                _connection.Open();
+                using (var command = _connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = $"UPDATE [BAN] SET DACHUYEN=1, GIOCHUYEN=now WHERE MAQL = '{lineId}'";
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateDaDoc(string lineId)
+        {
+            using (_connection = new OleDbConnection(_connectionString))
+            {
+                _connection.Open();
+                using (var command = _connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = $"UPDATE [BAN] SET DADOC=1, GIODOC=now WHERE MAQL = '{lineId}'";
+                    command.ExecuteNonQuery();
+                }
             }
         }
 
@@ -341,6 +384,58 @@ namespace POS.LocalWeb.Dal
                 LoggingFactory.GetLogger().Debug(ex.ToString());
             }
         }
+
+        public ReportTableline GetOrderLine(string lineId)
+        {
+            using (_connection = new OleDbConnection(_connectionString))
+            {
+                _connection.Open();
+                using (var command = _connection.CreateCommand())
+                {
+                    ReportTableline line = new ReportTableline();
+                    command.CommandType = CommandType.Text;
+                    command.CommandText =
+                        $"select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU," +
+                        $" DADOC, GIODOC, DACHUYEN, GIOCHUYEN, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO" +
+                        $" from [BAN] where MAQL = '{lineId}'";
+                    using (var dataReader = command.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                            line = new ReportTableline
+                            {
+                                Id = dataReader["MAQL"] as string,
+                                TableNo = dataReader["SOBAN"] as string,
+                                ProductName = dataReader["TENHANG"] as string,
+                                ProductNo = dataReader["MAHG"] as string,
+                                Amout = (double)dataReader["SOLUONG"],
+                                Price = (int)dataReader["DONGIA"],
+                                Om = dataReader["DVT"] as string,
+                                ProductGroup = dataReader["NHOM"] as string,
+                                DaBao = (bool)dataReader["DABAO"],
+                                DaDoc = (bool)dataReader["DADOC"],
+                                GioDoc = dataReader["GIODOC"] != DBNull.Value
+                                    ? (DateTime)dataReader["GIODOC"]
+                                    : (DateTime?)null,
+                                DaChuyen = (bool)dataReader["DACHUYEN"],
+                                GioChuyen = dataReader["GIOCHUYEN"] != DBNull.Value
+                                    ? (DateTime)dataReader["GIOCHUYEN"]
+                                    : (DateTime?)null,
+                                InDate = dataReader["NGAYGIO"] != DBNull.Value
+                                    ? (DateTime)dataReader["NGAYGIO"]
+                                    : (DateTime?)null,
+                                IsPrinted = (byte)dataReader["INCHUA"] == 0,
+                                GhiChu = dataReader["GHICHU"] as string
+                            };
+                    }
+
+                    return line;
+                }
+            }
+
+        }
+
+
+
 
         /// <summary>
         ///     Deletes the orderline.

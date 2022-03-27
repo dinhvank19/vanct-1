@@ -49,10 +49,27 @@ namespace POS.LocalWeb.Bep
 
         protected void OnBtnDaDoc(object sender, EventArgs e)
         {
+            var lineId = txtLineId.Value;
+            _db.UpdateDaDoc(lineId);
+            LoadData();
         }
 
         protected void OnBtnDaChuyen(object sender, EventArgs e)
         {
+            var lineId = txtLineId.Value;
+            _db.UpdateDaChuyen(lineId);
+            PrintChuyen();
+            LoadData();
+        }
+
+        protected void PrintChuyen()
+        {
+            var lineId = txtLineId.Value;
+            var line = _db.GetOrderLine(lineId);
+            var content = $"{line.TableNo}{Environment.NewLine}" +
+                $"{line.ProductName} - {line.Amout}{Environment.NewLine}" +
+                $"Đã chuyển lúc {line.GioChuyen.GetValueOrDefault().ToString("HH:mm")}";
+            // PosContext.Print(content, "MAY_IN_NAO_DAY");
         }
     }
 }
