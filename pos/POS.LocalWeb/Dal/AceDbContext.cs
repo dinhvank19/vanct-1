@@ -147,6 +147,25 @@ namespace POS.LocalWeb.Dal
             }
         }
 
+        public int RefreshInMins()
+        {
+            using (_connection = new OleDbConnection(_connectionString))
+            {
+                _connection.Open();
+                using (var command = _connection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    var refreshIn = 3;
+                    command.CommandText = "select THOI_GIAN_LAM_TUOI from [TUY CHON];";
+                    using (var dataReader = command.ExecuteReader())
+                        if (dataReader.Read())
+                            refreshIn = (int)dataReader["THOI_GIAN_LAM_TUOI"];
+
+                    return refreshIn;
+                }
+            }
+        }
+
         /// <summary>
         ///     Gets the table.
         /// </summary>

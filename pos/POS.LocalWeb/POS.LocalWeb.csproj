@@ -150,6 +150,12 @@
     <Content Include="Content\bootstrap5\bootstrap.min.css" />
     <Content Include="Content\bootstrap5\bootstrap.min.js" />
     <Content Include="Content\bootstrap5\jquery.min.js" />
+    <Content Include="Content\css\bep.css">
+      <DependentUpon>bep.less</DependentUpon>
+    </Content>
+    <Content Include="Content\css\bep.min.css">
+      <DependentUpon>bep.css</DependentUpon>
+    </Content>
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.min.js" />
     <Content Include="Content\css\checked16.png" />
@@ -174,6 +180,7 @@
     <Content Include="Content\css\site1.less" />
     <Content Include="Biz\Web.config" />
     <Content Include="Bep\BepLayout.Master" />
+    <Content Include="Bep\Web.config" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
