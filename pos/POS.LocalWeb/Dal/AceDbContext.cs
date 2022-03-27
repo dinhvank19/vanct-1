@@ -159,7 +159,9 @@ namespace POS.LocalWeb.Dal
                     command.CommandText = "select THOI_GIAN_LAM_TUOI from [TUY CHON];";
                     using (var dataReader = command.ExecuteReader())
                         if (dataReader.Read())
-                            refreshIn = (int)dataReader["THOI_GIAN_LAM_TUOI"];
+                            refreshIn = dataReader["THOI_GIAN_LAM_TUOI"] != DBNull.Value
+                                    ? (int)dataReader["THOI_GIAN_LAM_TUOI"]
+                                    : 3;
 
                     return refreshIn;
                 }
@@ -222,7 +224,7 @@ namespace POS.LocalWeb.Dal
                         return null;
 
                     command.CommandText =
-                        "select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO from [BAN] where SOBAN is not null and SOBAN = '" +
+                        "select MAQL, SOBAN, MAHG, TENHANG, SOLUONG, DONGIA, DVT, NHOM, DABAO, INCHUA, GHICHU, DADOC, DACHUYEN, GIOCHUYEN, DateValue(NGAY) + TimeValue(GIO) as NGAYGIO from [BAN] where SOBAN is not null and SOBAN = '" +
                         tableno + "';";
                     using (var dataReader = command.ExecuteReader())
                     {
@@ -241,6 +243,11 @@ namespace POS.LocalWeb.Dal
                                 Om = dataReader["DVT"] as string,
                                 ProductGroup = dataReader["NHOM"] as string,
                                 DaBao = (bool)dataReader["DABAO"],
+                                DaDoc = (bool)dataReader["DADOC"],
+                                DaChuyen = (bool)dataReader["DACHUYEN"],
+                                GioChuyen = dataReader["GIOCHUYEN"] != DBNull.Value
+                                    ? (DateTime)dataReader["GIOCHUYEN"]
+                                    : (DateTime?)null,
                                 InDate = dataReader["NGAYGIO"] != DBNull.Value
                                     ? (DateTime)dataReader["NGAYGIO"]
                                     : (DateTime?)null,

@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link href="~/Content/bootstrap5/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/css/bep.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -31,10 +31,42 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td><%#Eval("TableNo") %></td>
+                    <td><%#Eval("ProductName") %></td>
+                    <td><%#Eval("Amout") %></td>
+                    <td><%#Eval("GhiChu") %></td>
+                    <td><%#Eval("Moment") %></td>
+                    <td><%#Eval("MomentChuyen") %></td>
+                    <td class="dadoc-<%#Eval("DaDoc") %>">
+                        <button class="btn btn-lg btn-success pe-none btnTrue" type="button">
+                            <i class="fa fa-check-square" aria-hidden="true"></i>
+                            Đang làm
+                        </button>
+                        
+                        <button class="btn btn-lg btn-primary btnFalse" type="button" onclick="markAsDaDoc('<%#Eval("Id") %>')">
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            Bắt đầu làm
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-lg btn-primary" type="button" onclick="markAsDaChuyens('<%#Eval("Id") %>')">
+                            <i class="fa fa-square" aria-hidden="true"></i>
+                            Chuyển
+                        </button>
+                    </td>
                 </tr>
             </ItemTemplate>
         </telerik:RadListView>
     </table>
+    <script>
+        function markAsDaDoc(id) {
+            $('#<%=txtLineId.ClientID %>').val(id);
+            <%=ClientScript.GetPostBackClientHyperlink(btnDaDoc, "") %>
+        }
+
+        function markAsDaDoc(id) {
+            $('#<%=txtLineId.ClientID %>').val(id);
+            <%=ClientScript.GetPostBackClientHyperlink(btnDaChuyen, "") %>
+        }
+    </script>
 </asp:Content>

@@ -9,3 +9,15 @@ body.bep .ban.processed {
   background-color: #00f;
   color: #fff;
 }
+body.bep .dadoc-False .btnFalse {
+  display: block;
+}
+body.bep .dadoc-False .btnTrue {
+  display: none;
+}
+body.bep .dadoc-True .btnFalse {
+  display: none;
+}
+body.bep .dadoc-True .btnTrue {
+  display: block;
+}
