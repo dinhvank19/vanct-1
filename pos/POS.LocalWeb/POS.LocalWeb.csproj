@@ -62,6 +62,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\PosContext.cs" />
+    <Compile Include="Biz\Bep.aspx.cs">
+      <DependentUpon>Bep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Biz\Bep.aspx.designer.cs">
+      <DependentUpon>Bep.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Biz\UserControls\ModalOptions.ascx.cs">
       <DependentUpon>ModalOptions.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,7 +130,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Biz\Bep.aspx" />
     <Content Include="Biz\UserControls\ModalOptions.ascx" />
+    <Content Include="Content\bootstrap5\bootstrap.min.css" />
+    <Content Include="Content\bootstrap5\bootstrap.min.js" />
+    <Content Include="Content\bootstrap5\jquery.min.js" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap.min.js" />
     <Content Include="Content\css\checked16.png" />
@@ -157,6 +168,7 @@
     <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\font-awesome-4.7.0\fonts\FontAwesome.otf" />
     <Content Include="Content\css\jquery2.2.4.js" />
+    <Content Include="Content\css\bep.less" />
     <None Include="Properties\PublishProfiles\pos.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -207,7 +219,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

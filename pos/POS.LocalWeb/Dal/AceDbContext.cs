@@ -563,7 +563,7 @@ namespace POS.LocalWeb.Dal
                 {
                     command.CommandType = CommandType.Text;
                     command.CommandText =
-                        string.Format("select NHANVIEN, MK from [NHAN VIEN] where NHANVIEN = '{0}' and MK = '{1}'",
+                        string.Format("select NHANVIEN, MK, CHUCVU from [NHAN VIEN] where NHANVIEN = '{0}' and MK = '{1}'",
                             username, password);
                     using (var dataReader = command.ExecuteReader())
                     {
@@ -572,7 +572,8 @@ namespace POS.LocalWeb.Dal
 
                         return new ReportUser
                         {
-                            Username = dataReader["NHANVIEN"] as string
+                            Username = dataReader["NHANVIEN"] as string,
+                            ChucVu = dataReader["CHUCVU"] as string
                         };
                     }
                 }

@@ -35,7 +35,14 @@ namespace POS.LocalWeb
                 };
                 Response.Cookies.Add(cookie);
 
-                Response.Redirect("~/Biz/ListTable.aspx");
+                if (user.ChucVu.Equals("TN"))
+                {
+                    Response.Redirect("~/Biz/ListTable.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/Biz/Bep.aspx");
+                }
             }
             catch (Exception exception)
             {
