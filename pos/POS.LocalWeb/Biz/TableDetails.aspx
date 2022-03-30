@@ -70,13 +70,13 @@
                         </div>
                     </div>
                 </div>
-                <table class="table">
+                <table class="table table-striped">
                     <telerik:RadListView ID="gridLines" runat="server" ItemPlaceholderID="tableContainer">
                         <LayoutTemplate>
                             <asp:PlaceHolder ID="tableContainer" runat="server"></asp:PlaceHolder>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <tr class="dadoc-<%#Eval("DaDoc") %> dachuyen-<%#Eval("DaChuyen") %>">
+                            <tr>
                                 <td style="width: 20px; vertical-align: middle; padding-right: 0">
                                     <%
                                         if (PosContext.RequestChangeTable)
@@ -98,6 +98,8 @@
                                 <td class='<%#Eval("PrintCss") %>' id="<%#Eval("Id") %>">
                                     <div class="name"><%#Eval("ProductName") %> (<%#Eval("Moment") %>)</div>
                                     <div class="text-right"><%#Eval("Amout") %> x <%#Eval("PriceText") %> = <%#Eval("TotalText") %></div>
+                                    <span class="note-dadoc">Đang làm món</span>
+                                    <span class="note-dachuyen">Đã chuyển món</span>
                                 </td>
                             </tr>
                         </ItemTemplate>

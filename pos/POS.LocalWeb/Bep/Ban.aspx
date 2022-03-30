@@ -19,10 +19,8 @@
                         <th>Tên món</th>
                         <th>Số lượng</th>
                         <th>Ghi chú</th>
-                        <th>Nhập món<br />
-                            cách đây(Phút)</th>
-                        <th>Bắt đầu làm<br />
-                            cách đây(Phút)</th>
+                        <th>Nhập món</th>
+                        <th>Bắt đầu làms</th>
                         <th>Đang Làm</th>
                         <th>Xong</th>
                     </tr>
@@ -73,6 +71,6 @@
 
         setTimeout(function () {
             window.location.reload(true)
-        }, <%= new AceDbContext().RefreshInMins() %> * 1000 * 60);
+        }, <%= new AceDbContext().RefreshInMins() %> * 1000);
     </script>
 </asp:Content>
