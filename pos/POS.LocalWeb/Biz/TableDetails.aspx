@@ -63,10 +63,13 @@
                     </button>
                     <div class="ms-2">
                         <div class="fw-bolder">
-                            Bàn <asp:Literal runat="server" ID="lblTableNo" /> - [<asp:Literal runat="server" ID="lblMoment" />]
+                            Bàn
+                            <asp:Literal runat="server" ID="lblTableNo" />
+                            - [<asp:Literal runat="server" ID="lblMoment" />]
                         </div>
                         <div class="fw-bolder">
-                            Check In: <asp:Literal runat="server" ID="lblCheckIn" />
+                            Check In:
+                            <asp:Literal runat="server" ID="lblCheckIn" />
                         </div>
                     </div>
                 </div>
@@ -76,8 +79,8 @@
                             <asp:PlaceHolder ID="tableContainer" runat="server"></asp:PlaceHolder>
                         </LayoutTemplate>
                         <ItemTemplate>
-                            <tr>
-                                <td style="width: 20px; vertical-align: middle; padding-right: 0">
+                            <tr class="dadoc-<%#Eval("DaDoc") %>-dachuyen-<%#Eval("DaChuyen") %>">
+                                <td class="delete-col">
                                     <%
                                         if (PosContext.RequestChangeTable)
                                         {
@@ -96,10 +99,12 @@
                                     %>
                                 </td>
                                 <td class='<%#Eval("PrintCss") %>' id="<%#Eval("Id") %>">
-                                    <div class="name"><%#Eval("ProductName") %> (<%#Eval("Moment") %>)</div>
+                                    <div class="name">
+                                        <span><%#Eval("ProductName") %> (<%#Eval("Moment") %>)</span>
+                                        <span class="badge badge-danger">ĐL</span>
+                                        <span class="badge badge-primary">ĐX</span>
+                                    </div>
                                     <div class="text-right"><%#Eval("Amout") %> x <%#Eval("PriceText") %> = <%#Eval("TotalText") %></div>
-                                    <span class="note-dadoc">Đang làm món</span>
-                                    <span class="note-dachuyen">Đã chuyển món</span>
                                 </td>
                             </tr>
                         </ItemTemplate>

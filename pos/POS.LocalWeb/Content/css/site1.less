@@ -93,6 +93,50 @@
             .printed {
                 background: url(print16.png) top 5px right 5px no-repeat;
             }
+
+            .delete-col {
+                width: 20px;
+                vertical-align: middle;
+                padding-right: 0
+            }
+
+            .name {
+                .badge-danger {
+                    display: none;
+                    color: #fff;
+                    background-color: #dc3545;
+                }
+
+                .badge-primary {
+                    display: none;
+                    color: #fff;
+                    background-color: #007bff;
+                }
+            }
+
+            .dadoc-True-dachuyen-False {
+                .name {
+                    .badge-danger {
+                        display: inline-block;
+                    }
+
+                    .badge-primary {
+                        display: none;
+                    }
+                }
+            }
+
+            .dadoc-True-dachuyen-True {
+                .name {
+                    .badge-danger {
+                        display: none;
+                    }
+
+                    .badge-primary {
+                        display: inline-block;
+                    }
+                }
+            }
         }
 
         .panel {
@@ -389,13 +433,5 @@
                 width: 150px;
             }
         }
-    }
-
-    .dadoc-True {
-        background-color: #dff7ef;
-    }
-
-    .dachuyen-True {
-        background-color: #f2f5f5;
     }
 }

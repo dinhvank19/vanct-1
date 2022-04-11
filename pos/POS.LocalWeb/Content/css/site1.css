@@ -75,6 +75,33 @@ body.biz .divDetails table .processed {
 body.biz .divDetails table .printed {
   background: url(print16.png) top 5px right 5px no-repeat;
 }
+body.biz .divDetails table .delete-col {
+  width: 20px;
+  vertical-align: middle;
+  padding-right: 0;
+}
+body.biz .divDetails table .name .badge-danger {
+  display: none;
+  color: #fff;
+  background-color: #dc3545;
+}
+body.biz .divDetails table .name .badge-primary {
+  display: none;
+  color: #fff;
+  background-color: #007bff;
+}
+body.biz .divDetails table .dadoc-True-dachuyen-False .name .badge-danger {
+  display: inline-block;
+}
+body.biz .divDetails table .dadoc-True-dachuyen-False .name .badge-primary {
+  display: none;
+}
+body.biz .divDetails table .dadoc-True-dachuyen-True .name .badge-danger {
+  display: none;
+}
+body.biz .divDetails table .dadoc-True-dachuyen-True .name .badge-primary {
+  display: inline-block;
+}
 body.biz .divDetails .panel {
   margin: 0;
   border-radius: 0;
@@ -310,10 +337,4 @@ body.biz #changeTableModal .modal-dialog select.form-control {
 }
 body.biz #changeTableModal .modal-dialog .btn {
   width: 150px;
-}
-body.biz .dadoc-True {
-  background-color: #dff7ef;
-}
-body.biz .dachuyen-True {
-  background-color: #f2f5f5;
 }
