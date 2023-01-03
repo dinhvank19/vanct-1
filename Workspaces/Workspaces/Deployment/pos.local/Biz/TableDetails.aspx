@@ -100,11 +100,11 @@
                                 </td>
                                 <td class='<%#Eval("PrintCss") %>' id="<%#Eval("Id") %>">
                                     <div class="name">
-                                        <span><%#Eval("ProductName") %> (<%#Eval("Moment") %>) <%#Eval("GhiChu") %></span>
+                                        <span><%#Eval("ProductName") %> (<%#Eval("Moment") %>)</span>
                                         <span class="badge badge-danger">ĐL</span>
                                         <span class="badge badge-primary">ĐX</span>
                                     </div>
-                                    <div class="text-right"><%#Eval("Amout") %> <%#Eval("Om") %> x <%#Eval("PriceText") %> = <%#Eval("TotalText") %></div>
+                                    <div class="text-right"><%#Eval("Amout") %> x <%#Eval("PriceText") %> = <%#Eval("TotalText") %></div>
                                 </td>
                             </tr>
                         </ItemTemplate>

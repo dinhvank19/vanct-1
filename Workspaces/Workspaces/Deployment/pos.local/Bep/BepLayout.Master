@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BepLayout.master.cs" Inherits="POS.LocalWeb.Bep.BepLayout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>ACE SOTF - BEP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="~/Content/bootstrap5/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bep.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="bep">
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Path="~/Content/bootstrap5/jquery.min.js" />
+                <asp:ScriptReference Path="~/Content/bootstrap5/bootstrap.min.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

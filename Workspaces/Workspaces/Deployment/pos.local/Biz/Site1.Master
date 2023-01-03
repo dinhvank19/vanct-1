@@ -1,0 +1,32 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="POS.LocalWeb.Biz.Site1" %>
+
+<%@ Register Src="~/Biz/UserControls/ModalOptions.ascx" TagPrefix="Custom" TagName="ModalOptions" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>ACE SOTF</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/site1.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="biz">
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Path="~/Content/css/jquery2.2.4.js" />
+                <asp:ScriptReference Path="~/Content/css/bootstrap.min.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <asp:ContentPlaceHolder ID="header" runat="server" />
+        <asp:ContentPlaceHolder ID="body" runat="server" />
+        <asp:ContentPlaceHolder ID="footer" runat="server" />
+        <Custom:ModalOptions runat="server" id="ModalOptions" />
+    </form>
+</body>
+</html>

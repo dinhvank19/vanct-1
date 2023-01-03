@@ -91,23 +91,23 @@ namespace POS.LocalWeb.Biz
             foreach (var g in mucs)
             {
                 var content = "ORDER - " + g.Name + Environment.NewLine;
-                content += string.Format("Bàn {0} - {1}", CurrentTable.TableNo, user.Username) + Environment.NewLine;
+                content += string.Format("Bàn: {0} - {1}", CurrentTable.TableNo, user.Username) + Environment.NewLine;
                 content += DateTime.Now.ToString("yyyy-MM-dd HH:mm") + Environment.NewLine;
-                content += "-------------------------------------------" + Environment.NewLine;
-                content += "Món                                      SL" + Environment.NewLine;
-                content += "-------------------------------------------" + Environment.NewLine;
+                content += "--------------------------------------------" + Environment.NewLine;
+                content += "Món                                       SL" + Environment.NewLine;
+                content += "--------------------------------------------" + Environment.NewLine;
                 var glines = lines.Where(i => i.ProductGroup.Equals(g.Name)).ToList();
                 if (glines.Count == 0)
                     continue;
 
                 foreach (var line in glines)
                 {
-                    content += string.Format("{0} x {1}", line.ProductName, line.Amout) + Environment.NewLine;
+                    content += string.Format("{0} : {1} {2}", line.ProductName,line.Amout, line.Om) + Environment.NewLine;
 
                     if (!string.IsNullOrEmpty(line.GhiChu))
                         content += line.GhiChu + Environment.NewLine;
 
-                    content += "-------------------------------------------" + Environment.NewLine;
+                    content += "--------------------------------------------" + Environment.NewLine;
                 }
 
                 // try to print

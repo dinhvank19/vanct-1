@@ -68,7 +68,7 @@
                     </LayoutTemplate>
                     <ItemTemplate>
                         <div <%#Eval("BackgroundPhoto") %> class="product product-x<%= CurrentColumnOption %>" onclick="ShowAddProductDialog('<%#Eval("Id") %>', '<%#Eval("Name") %>')">
-                            <span><%#Eval("Name") %> (<%#Eval("Dvt") %>)</span>
+                            <span><%#Eval("Name") %></span>
                         </div>
                     </ItemTemplate>
                 </telerik:RadListView>

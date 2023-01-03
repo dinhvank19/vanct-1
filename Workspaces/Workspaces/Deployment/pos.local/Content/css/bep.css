@@ -1,0 +1,33 @@
+﻿body.bep .ban {
+  min-width: 80px;
+}
+body.bep .ban.busy {
+  background-color: red;
+  color: #fff;
+}
+body.bep .ban.processed {
+  background-color: #00f;
+  color: #fff;
+}
+body.bep .amount-error {
+  background-color: red !important;
+  color: yellow !important;
+}
+body.bep .dadoc-False .btnFalse {
+  display: block;
+}
+body.bep .dadoc-False .btnTrue {
+  display: none;
+}
+body.bep .dadoc-False .btnChuyen {
+  display: none;
+}
+body.bep .dadoc-True .btnFalse {
+  display: none;
+}
+body.bep .dadoc-True .btnTrue {
+  display: block;
+}
+body.bep .dadoc-True .btnChuyen {
+  display: block;
+}
